@@ -34,7 +34,7 @@ pod install
 
 ## Manual
 
-Just download the [radon](raw/master/bin/radon) binary and put it anywhere you like.
+Just download the [radon](https://github.com/e-sites/Radon/raw/master/bin/radon) binary and put it anywhere you like.
 
 # Generating
 
@@ -71,7 +71,7 @@ This will generate two files:
 
 You can use these two files in your project.
 
-See the [example project](tree/master/Example/) for more information.
+See the [example project](https://github.com/e-sites/Radon/tree/master/Example) for more information.
 
 # Usage
 
