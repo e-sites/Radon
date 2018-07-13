@@ -14,19 +14,19 @@ let cli = CommandLineKit.CommandLine()
 let folderOption = StringOption(shortFlag: "f",
                                 longFlag: "folder",
                                 required: true,
-                                helpMessage: "The folder to scan")
+                                helpMessage: "The folder to scan for assets")
 
 
 let outOption = StringOption(shortFlag: "o",
                              longFlag: "output",
                              required: false,
-                             helpMessage: "The folder to write the R.swift file to")
+                             helpMessage: "The folder to write the Radon.swift files to")
 
 
 let watchOption = BoolOption(shortFlag: "w",
                              longFlag: "watch",
                              required: false,
-                             helpMessage: "Automatically watch the 'folder'")
+                             helpMessage: "Automatically watch the `folder`")
 
 
 cli.addOptions(folderOption, outOption, watchOption)
