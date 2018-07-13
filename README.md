@@ -51,7 +51,7 @@ Usage: Pods/Radon/bin/radon [options]
   -f, --folder:
       The folder to scan
   -o, --output:
-      The folder to write the R.swift file to
+      The folder to write the Radon.swift files to
   -w, --watch:
       Automatically watch the 'folder'
 ```
