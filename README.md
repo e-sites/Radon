@@ -71,7 +71,7 @@ This will generate two files:
 
 You can use these two files in your project.
 
-See the [example project](https://github.com/e-sites/Radon/tree/master/Example) for more information.
+See the [example project](https://github.com/e-sites/Radon/tree/master/RadonExample) for more information.
 
 # Usage
 
