@@ -8,7 +8,7 @@
 import Foundation
 
 class Radon {
-    static var version: String = "1.0.1"
+    static var version: String = "1.1.0"
 
     static var fileName = "Radon"
 
@@ -56,7 +56,7 @@ class Radon {
             imageGenerator.parse(folder: folder)
             Logger.log(Logger.colorWrap(text: "Generated new ", in: "95") +
                 Logger.colorWrap(text: Radon.fileName + ".swift", in: "4;95") +
-                Logger.colorWrap(text: " (\(self._countFolders) folders, \(self._countFiles) files)", in: "90")
+                Logger.colorWrap(text: " (Scanned \(self._countFolders) folders, \(self._countFiles) files)", in: "90")
             )
 
         }
