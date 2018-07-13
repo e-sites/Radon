@@ -10,16 +10,16 @@
 public typealias RadonImage = NSImage
 import AppKit
 
-private func _image(named name: String) -> RadonImage {
-    return NSImage(named: NSImage.Name(name))!
+private func _image(named name: String) -> RadonImage? {
+    return NSImage(named: NSImage.Name(name))
 }
 
 #else
 public typealias RadonImage = UIImage
 import UIKit
 
-private func _image(named name: String) -> RadonImage {
-    return UIImage(named: name)!
+private func _image(named name: String) -> RadonImage? {
+    return UIImage(named: name)
 }
 
 #endif
@@ -29,23 +29,23 @@ public extension Radon {
         private init() { }
         public struct images {
             private init() { }
-            public static var handWater: RadonImage { return _image(named: "hand-water") }
-            public static var heavybox: RadonImage { return _image(named: "heavybox") }
+            public static var handWater: RadonImage? { return _image(named: "hand-water") }
+            public static var heavybox: RadonImage? { return _image(named: "heavybox") }
         }
         public struct assets {
             private init() { }
             public struct backgrounds {
                 private init() { }
-                public static var sandyBoots: RadonImage { return _image(named: "sandy-boots") }
-                public static var someBoat: RadonImage { return _image(named: "some&&boat") }
-                public static var planeWing: RadonImage { return _image(named: "plane wing") }
-                public static var tree: RadonImage { return _image(named: "tree") }
-                public static var _1Cyclists: RadonImage { return _image(named: "1cyclists") }
+                public static var sandyBoots: RadonImage? { return _image(named: "sandy-boots") }
+                public static var someBoat: RadonImage? { return _image(named: "some&&boat") }
+                public static var planeWing: RadonImage? { return _image(named: "plane wing") }
+                public static var tree: RadonImage? { return _image(named: "tree") }
+                public static var _1Cyclists: RadonImage? { return _image(named: "1cyclists") }
             }
             public struct icons {
                 private init() { }
-                public static var ironMan: RadonImage { return _image(named: "ironMan") }
-                public static var unicorn: RadonImage { return _image(named: "unicorn") }
+                public static var ironMan: RadonImage? { return _image(named: "ironMan") }
+                public static var unicorn: RadonImage? { return _image(named: "unicorn") }
             }
         }
     }
