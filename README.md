@@ -50,7 +50,7 @@ With the following options:
 Usage: Pods/Radon/bin/radon [options]
   -f, --folder:
       The folder to scan
-  -o, --out:
+  -o, --output:
       The folder to write the R.swift file to
   -w, --watch:
       Automatically watch the 'folder'
@@ -61,7 +61,7 @@ With the `--watch` option the cli app wil automatically scan the folder and gene
 So for instance:
 
 ```
-$ Pods/Radon/bin/radon --folder ./Resources/ -o ./Classes/Generated/ --watch
+$ Pods/Radon/bin/radon --folder ./Resources/ --output ./Classes/Generated/ --watch
 ```
 
 This will generate two files:

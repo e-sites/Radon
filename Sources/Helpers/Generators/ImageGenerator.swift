@@ -29,8 +29,23 @@ class ImageGenerator: Generator {
         folder.name = name
         _lines = [
             headerLines(fileName: Radon.fileName),
+            "#if os(OSX)",
+            "public typealias RadonImage = NSImage",
+            "import AppKit",
             "",
+            "private func _image(named name: String) -> RadonImage {",
+            "return NSImage(named: NSImage.Name(name))!".tabbed(1),
+            "}",
+            "",
+            "#else",
+            "public typealias RadonImage = UIImage",
             "import UIKit",
+            "",
+            "private func _image(named name: String) -> RadonImage {",
+            "return UIImage(named: name)!".tabbed(1),
+            "}",
+            "",
+            "#endif",
             "",
             "public extension \(Radon.fileName) {",
         ]
@@ -67,8 +82,8 @@ class ImageGenerator: Generator {
             }
             _parsedImageNames.append(name)
             let varName = name.camelCased().appendIfFirstCharacterIsNumber(with: "_")
-            let uiimage = "UIImage(named: \"\(name)\")!"
-            _lines.append("public static var \(varName): UIImage { return \(uiimage) }".tabbed(indent + 1))
+            let uiimage = "_image(named: \"\(name)\")"
+            _lines.append("public static var \(varName): RadonImage { return \(uiimage) }".tabbed(indent + 1))
         }
         _lines.append("}\n".tabbed(indent))
     }

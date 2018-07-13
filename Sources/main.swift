@@ -8,7 +8,6 @@
 
 import Foundation
 import CommandLineKit
-import AppKit
 
 let cli = CommandLineKit.CommandLine()
 
@@ -19,7 +18,7 @@ let folderOption = StringOption(shortFlag: "f",
 
 
 let outOption = StringOption(shortFlag: "o",
-                             longFlag: "out",
+                             longFlag: "output",
                              required: false,
                              helpMessage: "The folder to write the R.swift file to")
 
@@ -43,6 +42,4 @@ do {
 
 
 let radon = Radon(folder: folderOption.value!, outputFolder: outOption.value ?? "./", watch: watchOption.wasSet)
-if watchOption.wasSet {
-    RunLoop.main.run()
-}
+radon.run()

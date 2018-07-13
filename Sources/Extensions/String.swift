@@ -20,46 +20,11 @@ func =~ (string: String, regex: String) -> Bool {
 }
 
 extension String {
-    func capturedGroups(withRegex pattern: String,
-                        options: NSRegularExpression.Options = []) -> [(Range<String.Index>, String)] {
-        var results: [(Range<String.Index>, String)] = []
-        
-        var regex: NSRegularExpression
-        do {
-            regex = try NSRegularExpression(pattern: pattern, options: options)
-        } catch {
-            return results
-        }
-        
-        let matches = regex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
-        
-        guard let match = matches.first else {
-            return results
-        }
-        
-        let lastRangeIndex = match.numberOfRanges - 1
-        guard lastRangeIndex >= 1 else {
-            return results
-        }
-        
-        for index in 1...lastRangeIndex {
-            let capturedGroupIndex = match.range(at: index)
-            
-            let matchedString = (self as NSString).substring(with: capturedGroupIndex)
-            if let range = Range(capturedGroupIndex, in: self) {
-                results.append((range, matchedString))
-            }
-        }
-        
-        return results
-    }
-
-    var md5: [UInt8] {
+    var md5: String {
         let md5 = Digest(using: .md5)
         _ = md5.update(string: self)
-        return md5.final()
+        return md5.final().map{ String(format: "%02X", $0) }.joined()
     }
-
 
     func uncapitalizeFirstLetter() -> String {
         return prefix(1).lowercased() + dropFirst()

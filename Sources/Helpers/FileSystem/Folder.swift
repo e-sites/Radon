@@ -19,5 +19,4 @@ class Folder: CustomStringConvertible {
     var description: String {
         return "Name: \(name), Files: \(files), subFolders: \(subFolders)"
     }
-
 }

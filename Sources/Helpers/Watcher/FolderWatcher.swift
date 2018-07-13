@@ -12,6 +12,8 @@ class FolderWatcher {
     private(set) var isWatching = false
     private(set) var isScanning = false
 
+    private lazy var dispatchQueue = DispatchQueue(label: "com.esites.library.radon", qos: .background)
+
     private var _timer: Timer?
 
     private var _md5 = ""
@@ -43,7 +45,7 @@ class FolderWatcher {
 
     @objc
     private func _scan() {
-        DispatchQueue(label: "com.esites.library.radon", qos: .background).async {
+        dispatchQueue.async {
             if !self.isWatching {
                 return
             }

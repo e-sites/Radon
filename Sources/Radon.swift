@@ -1,21 +1,21 @@
 //
 //  Radon.swift
-//  CommandLineKit
+//  Radon
 //
 //  Created by Bas van Kuijck on 12/07/2018.
 //
 
 import Foundation
-import AppKit
 
 class Radon {
-    static var version: String = "1.0.0"
+    static var version: String = "1.0.1"
 
     static var fileName = "Radon"
 
     private let mainFolder: String
     private let outputFolder: String
     private var _countFiles = 0
+    private var _shouldWatch = false
     private var _countFolders = 0
 
     init(folder aFolder: String, outputFolder: String, watch: Bool = true) {
@@ -39,6 +39,10 @@ class Radon {
             aFolder.removeLast()
         }
         self.outputFolder = aFolder
+        _shouldWatch = watch
+    }
+
+    func run() {
 
         let mainFolderFile = File(path: mainFolder)
 
@@ -47,8 +51,8 @@ class Radon {
             self._countFolders = 0
             let folder = Folder(name: "")
             self.parseFolder(mainFolderFile, folder: folder)
-            GeneralGenerator(outputFolder: outputFolder).parse(folder: folder)
-            let imageGenerator = ImageGenerator(outputFolder: outputFolder)
+            GeneralGenerator(outputFolder: self.outputFolder).parse(folder: folder)
+            let imageGenerator = ImageGenerator(outputFolder: self.outputFolder)
             imageGenerator.parse(folder: folder)
             Logger.log(Logger.colorWrap(text: "Generated new ", in: "95") +
                 Logger.colorWrap(text: Radon.fileName + ".swift", in: "4;95") +
@@ -56,14 +60,17 @@ class Radon {
             )
 
         }
-        
-        if watch {
+
+        if _shouldWatch {
             let watcher = FolderWatcher(file: mainFolderFile)
             watcher.start()
             watcher.onChanges(fire)
+
+            RunLoop.main.run()
         } else {
             fire()
         }
+        
     }
 
     func parseFolder(_ dir: File, folder: Folder) {

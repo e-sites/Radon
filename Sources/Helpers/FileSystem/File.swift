@@ -37,10 +37,6 @@ class File: CustomStringConvertible {
         return File(path: path)
     }
 
-    static func chmod(_ path: String, mode: String) {
-        File(path: path).chmod(mode)
-    }
-
     static func remove(_ path: String) {
         File(path: path).remove()
     }
@@ -89,14 +85,6 @@ extension File {
     func write(_ data: Data) {
         let url = URL(fileURLWithPath: path)
         try? data.write(to: url)
-    }
-
-    func touch() {
-        shell("/usr/bin/touch", arguments: [ path ])
-    }
-
-    func chmod(_ mode: String) {
-        shell("/bin/chmod", arguments: [ mode, path ])
     }
 
     func remove() {
