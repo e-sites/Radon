@@ -27,6 +27,15 @@
           "revision": "9156d238dbc4c15455b77b45e721b2bb0b995e31",
           "version": "1.0.0"
         }
+      },
+      {
+        "package": "Francium",
+        "repositoryURL": "https://github.com/e-sites/Francium.git",
+        "state": {
+          "branch": null,
+          "revision": "9a8050cdf8d5b8fc2d22177e87c731f014947f48",
+          "version": "1.0.2"
+        }
       }
     ]
   },

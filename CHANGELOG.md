@@ -1,5 +1,8 @@
 # Changelog Radon
 
+## v1.2.0 (13-07-2018)
+- Implemented `Francium`.
+
 ## v1.1.0 (13-07-2018)
 - Empty directories (no files) are ignored
 

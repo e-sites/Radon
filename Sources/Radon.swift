@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Francium
 
 class Radon {
-    static var version: String = "1.1.0"
+    static var version: String = "1.2.0"
 
     static var fileName = "Radon"
 
@@ -74,13 +75,13 @@ class Radon {
     }
 
     func parseFolder(_ dir: File, folder: Folder) {
-        Dir.glob("\(dir.path)/*")
+        Dir(path: dir.path).glob("*")
             .filter { $0.name != ".DS_Store" }
             .forEach { file in
                 if file.isDirectory {
-                    if file.extension == "appiconset" || file.extension == "launchimage" {
+                    if file.extensionName == "appiconset" || file.extensionName == "launchimage" {
 
-                    } else if file.extension == "imageset" {
+                    } else if file.extensionName == "imageset" {
                         folder.files.append(file)
                         self._countFiles += 1
                     } else {

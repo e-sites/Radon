@@ -9,18 +9,18 @@
 /* Begin PBXAggregateTarget section */
 		"CommandLine::CommandLine::ProductTarget" /* CommandLine */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_56 /* Build configuration list for PBXAggregateTarget "CommandLine" */;
+			buildConfigurationList = OBJ_62 /* Build configuration list for PBXAggregateTarget "CommandLine" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_59 /* PBXTargetDependency */,
+				OBJ_65 /* PBXTargetDependency */,
 			);
 			name = CommandLine;
 			productName = CommandLine;
 		};
 		"CommonCrypto::CommonCrypto::ProductTarget" /* CommonCrypto */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_76 /* Build configuration list for PBXAggregateTarget "CommonCrypto" */;
+			buildConfigurationList = OBJ_82 /* Build configuration list for PBXAggregateTarget "CommonCrypto" */;
 			buildPhases = (
 			);
 			dependencies = (
@@ -30,11 +30,11 @@
 		};
 		"Radon::radon::ProductTarget" /* radon */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_131 /* Build configuration list for PBXAggregateTarget "radon" */;
+			buildConfigurationList = OBJ_151 /* Build configuration list for PBXAggregateTarget "radon" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_134 /* PBXTargetDependency */,
+				OBJ_154 /* PBXTargetDependency */,
 			);
 			name = radon;
 			productName = radon;
@@ -42,60 +42,71 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		OBJ_100 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Package.swift */; };
-		OBJ_106 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* String.swift */; };
-		OBJ_107 /* Dir.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Dir.swift */; };
-		OBJ_108 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* File.swift */; };
-		OBJ_110 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Folder.swift */; };
-		OBJ_111 /* GeneralGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* GeneralGenerator.swift */; };
-		OBJ_112 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Generator.swift */; };
-		OBJ_113 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* ImageGenerator.swift */; };
-		OBJ_114 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Logger.swift */; };
-		OBJ_116 /* FolderWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* FolderWatcher.swift */; };
-		OBJ_117 /* Radon.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* Radon.swift */; };
-		OBJ_118 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* main.swift */; };
-		OBJ_120 /* Cryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cryptor::Cryptor::Product" /* Cryptor.framework */; };
-		OBJ_121 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CommandLine::CommandLineKit::Product" /* CommandLineKit.framework */; };
-		OBJ_129 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_65 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* CommandLine.swift */; };
-		OBJ_66 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* Option.swift */; };
-		OBJ_67 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* StringExtensions.swift */; };
-		OBJ_74 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
-		OBJ_84 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Crypto.swift */; };
-		OBJ_85 /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Cryptor.swift */; };
-		OBJ_86 /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* Digest.swift */; };
-		OBJ_87 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* HMAC.swift */; };
-		OBJ_88 /* KeyDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* KeyDerivation.swift */; };
-		OBJ_89 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Random.swift */; };
-		OBJ_90 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* Status.swift */; };
-		OBJ_91 /* StreamCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* StreamCryptor.swift */; };
-		OBJ_92 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Updatable.swift */; };
-		OBJ_93 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Utilities.swift */; };
+		OBJ_106 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Package.swift */; };
+		OBJ_112 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* Error.swift */; };
+		OBJ_113 /* Dir.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Dir.swift */; };
+		OBJ_114 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* File.swift */; };
+		OBJ_115 /* IOObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* IOObject.swift */; };
+		OBJ_122 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* Package.swift */; };
+		OBJ_128 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* String.swift */; };
+		OBJ_129 /* GeneralGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* GeneralGenerator.swift */; };
+		OBJ_130 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Generator.swift */; };
+		OBJ_131 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* ImageGenerator.swift */; };
+		OBJ_132 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Folder.swift */; };
+		OBJ_133 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Logger.swift */; };
+		OBJ_134 /* Radon.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Radon.swift */; };
+		OBJ_135 /* FolderWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* FolderWatcher.swift */; };
+		OBJ_136 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* main.swift */; };
+		OBJ_138 /* Francium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Francium::Francium::Product" /* Francium.framework */; };
+		OBJ_139 /* Cryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cryptor::Cryptor::Product" /* Cryptor.framework */; };
+		OBJ_140 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CommandLine::CommandLineKit::Product" /* CommandLineKit.framework */; };
+		OBJ_149 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_71 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* CommandLine.swift */; };
+		OBJ_72 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Option.swift */; };
+		OBJ_73 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* StringExtensions.swift */; };
+		OBJ_80 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* Package.swift */; };
+		OBJ_90 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Crypto.swift */; };
+		OBJ_91 /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* Cryptor.swift */; };
+		OBJ_92 /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Digest.swift */; };
+		OBJ_93 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* HMAC.swift */; };
+		OBJ_94 /* KeyDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* KeyDerivation.swift */; };
+		OBJ_95 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Random.swift */; };
+		OBJ_96 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* Status.swift */; };
+		OBJ_97 /* StreamCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* StreamCryptor.swift */; };
+		OBJ_98 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Updatable.swift */; };
+		OBJ_99 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C3772FF120F7A3960071ED07 /* PBXContainerItemProxy */ = {
+		C375A53520F8E28900B79A89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Francium::Francium";
+			remoteInfo = Francium;
+		};
+		C375A53620F8E28900B79A89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Cryptor::Cryptor";
 			remoteInfo = Cryptor;
 		};
-		C3772FF220F7A3960071ED07 /* PBXContainerItemProxy */ = {
+		C375A53720F8E28900B79A89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CommandLine::CommandLineKit";
 			remoteInfo = CommandLineKit;
 		};
-		C3772FF320F7A3970071ED07 /* PBXContainerItemProxy */ = {
+		C375A53820F8E28A00B79A89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CommandLine::CommandLineKit";
 			remoteInfo = CommandLineKit;
 		};
-		C3772FF420F7A3970071ED07 /* PBXContainerItemProxy */ = {
+		C375A53920F8E28A00B79A89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -107,54 +118,66 @@
 /* Begin PBXFileReference section */
 		"CommandLine::CommandLineKit::Product" /* CommandLineKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommandLineKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Cryptor::Cryptor::Product" /* Cryptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cryptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Francium::Francium::Product" /* Francium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Francium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_11 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		OBJ_14 /* Dir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dir.swift; sourceTree = "<group>"; };
-		OBJ_15 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		OBJ_13 /* GeneralGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralGenerator.swift; sourceTree = "<group>"; };
+		OBJ_14 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		OBJ_15 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
 		OBJ_17 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
-		OBJ_19 /* GeneralGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralGenerator.swift; sourceTree = "<group>"; };
-		OBJ_20 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
-		OBJ_21 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
-		OBJ_22 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		OBJ_25 /* FolderWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderWatcher.swift; sourceTree = "<group>"; };
-		OBJ_26 /* Radon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radon.swift; sourceTree = "<group>"; };
-		OBJ_27 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		OBJ_34 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
-		OBJ_35 /* Cryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptor.swift; sourceTree = "<group>"; };
-		OBJ_36 /* Digest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digest.swift; sourceTree = "<group>"; };
-		OBJ_37 /* HMAC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
-		OBJ_38 /* KeyDerivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDerivation.swift; sourceTree = "<group>"; };
-		OBJ_39 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
-		OBJ_40 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
-		OBJ_41 /* StreamCryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamCryptor.swift; sourceTree = "<group>"; };
-		OBJ_42 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
-		OBJ_43 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		OBJ_44 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/bvkuijck/Desktop/workspace/ios/#ios-suite/Radon/.build/checkouts/BlueCryptor.git-2709167748876642405/Package.swift"; sourceTree = "<group>"; };
-		OBJ_47 /* CommandLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLine.swift; sourceTree = "<group>"; };
-		OBJ_48 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
-		OBJ_49 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		OBJ_50 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/bvkuijck/Desktop/workspace/ios/#ios-suite/Radon/.build/checkouts/CommandLine.git--2975222262383774978/Package.swift"; sourceTree = "<group>"; };
+		OBJ_18 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Radon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radon.swift; sourceTree = "<group>"; };
+		OBJ_21 /* FolderWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderWatcher.swift; sourceTree = "<group>"; };
+		OBJ_22 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_31 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_33 /* Dir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dir.swift; sourceTree = "<group>"; };
+		OBJ_34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		OBJ_35 /* IOObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOObject.swift; sourceTree = "<group>"; };
+		OBJ_36 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/bvkuijck/Desktop/workspace/ios/#ios-suite/Radon/.build/checkouts/Francium.git-6032711938768738560/Package.swift"; sourceTree = "<group>"; };
+		OBJ_39 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		OBJ_40 /* Cryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptor.swift; sourceTree = "<group>"; };
+		OBJ_41 /* Digest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digest.swift; sourceTree = "<group>"; };
+		OBJ_42 /* HMAC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
+		OBJ_43 /* KeyDerivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDerivation.swift; sourceTree = "<group>"; };
+		OBJ_44 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		OBJ_45 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		OBJ_46 /* StreamCryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamCryptor.swift; sourceTree = "<group>"; };
+		OBJ_47 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
+		OBJ_48 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		OBJ_49 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/bvkuijck/Desktop/workspace/ios/#ios-suite/Radon/.build/checkouts/BlueCryptor.git-2709167748876642405/Package.swift"; sourceTree = "<group>"; };
+		OBJ_52 /* CommandLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLine.swift; sourceTree = "<group>"; };
+		OBJ_53 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		OBJ_54 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		OBJ_55 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/bvkuijck/Desktop/workspace/ios/#ios-suite/Radon/.build/checkouts/CommandLine.git--2975222262383774978/Package.swift"; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"Radon::Radon::Product" /* Radon */ = {isa = PBXFileReference; lastKnownFileType = text; path = Radon; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_119 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_120 /* Cryptor.framework in Frameworks */,
-				OBJ_121 /* CommandLineKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_68 /* Frameworks */ = {
+		OBJ_100 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_94 /* Frameworks */ = {
+		OBJ_116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_138 /* Francium.framework in Frameworks */,
+				OBJ_139 /* Cryptor.framework in Frameworks */,
+				OBJ_140 /* CommandLineKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -172,106 +195,112 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		OBJ_12 /* Helpers */ = {
+		OBJ_12 /* Generators */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_13 /* FileSystem */,
-				OBJ_18 /* Generators */,
-				OBJ_22 /* Logger.swift */,
-				OBJ_24 /* Watcher */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		OBJ_13 /* FileSystem */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_14 /* Dir.swift */,
-				OBJ_15 /* File.swift */,
-				OBJ_17 /* Folder.swift */,
-			);
-			path = FileSystem;
-			sourceTree = "<group>";
-		};
-		OBJ_18 /* Generators */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_20 /* Generator.swift */,
-				OBJ_19 /* GeneralGenerator.swift */,
-				OBJ_21 /* ImageGenerator.swift */,
+				OBJ_13 /* GeneralGenerator.swift */,
+				OBJ_14 /* Generator.swift */,
+				OBJ_15 /* ImageGenerator.swift */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
 		};
-		OBJ_24 /* Watcher */ = {
+		OBJ_16 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_25 /* FolderWatcher.swift */,
+				OBJ_17 /* Folder.swift */,
+				OBJ_18 /* Logger.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		OBJ_20 /* Watcher */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_21 /* FolderWatcher.swift */,
 			);
 			path = Watcher;
 			sourceTree = "<group>";
 		};
-		OBJ_28 /* Tests */ = {
+		OBJ_23 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_31 /* Dependencies */ = {
+		OBJ_27 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_32 /* Cryptor 1.0.5 */,
-				OBJ_45 /* CommandLine 3.0.0-pre1 */,
+				OBJ_28 /* Francium 1.0.1 */,
+				OBJ_37 /* Cryptor 1.0.5 */,
+				OBJ_50 /* CommandLine 3.0.0-pre1 */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		OBJ_32 /* Cryptor 1.0.5 */ = {
+		OBJ_28 /* Francium 1.0.1 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_33 /* Cryptor */,
-				OBJ_44 /* Package.swift */,
+				OBJ_29 /* Francium */,
+				OBJ_36 /* Package.swift */,
+			);
+			name = "Francium 1.0.1";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_29 /* Francium */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_30 /* Errors */,
+				OBJ_32 /* IO */,
+			);
+			name = Francium;
+			path = ".build/checkouts/Francium.git-6032711938768738560/Sources/Francium";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_30 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_31 /* Error.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		OBJ_32 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_33 /* Dir.swift */,
+				OBJ_34 /* File.swift */,
+				OBJ_35 /* IOObject.swift */,
+			);
+			path = IO;
+			sourceTree = "<group>";
+		};
+		OBJ_37 /* Cryptor 1.0.5 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_38 /* Cryptor */,
+				OBJ_49 /* Package.swift */,
 			);
 			name = "Cryptor 1.0.5";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_33 /* Cryptor */ = {
+		OBJ_38 /* Cryptor */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_34 /* Crypto.swift */,
-				OBJ_35 /* Cryptor.swift */,
-				OBJ_36 /* Digest.swift */,
-				OBJ_37 /* HMAC.swift */,
-				OBJ_38 /* KeyDerivation.swift */,
-				OBJ_39 /* Random.swift */,
-				OBJ_40 /* Status.swift */,
-				OBJ_41 /* StreamCryptor.swift */,
-				OBJ_42 /* Updatable.swift */,
-				OBJ_43 /* Utilities.swift */,
+				OBJ_39 /* Crypto.swift */,
+				OBJ_40 /* Cryptor.swift */,
+				OBJ_41 /* Digest.swift */,
+				OBJ_42 /* HMAC.swift */,
+				OBJ_43 /* KeyDerivation.swift */,
+				OBJ_44 /* Random.swift */,
+				OBJ_45 /* Status.swift */,
+				OBJ_46 /* StreamCryptor.swift */,
+				OBJ_47 /* Updatable.swift */,
+				OBJ_48 /* Utilities.swift */,
 			);
 			name = Cryptor;
 			path = ".build/checkouts/BlueCryptor.git-2709167748876642405/Sources/Cryptor";
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_45 /* CommandLine 3.0.0-pre1 */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_46 /* CommandLineKit */,
-				OBJ_50 /* Package.swift */,
-			);
-			name = "CommandLine 3.0.0-pre1";
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_46 /* CommandLineKit */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_47 /* CommandLine.swift */,
-				OBJ_48 /* Option.swift */,
-				OBJ_49 /* StringExtensions.swift */,
-			);
-			name = CommandLineKit;
-			path = ".build/checkouts/CommandLine.git--2975222262383774978/CommandLineKit";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_5 /*  */ = {
@@ -279,19 +308,40 @@
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_28 /* Tests */,
-				OBJ_31 /* Dependencies */,
-				OBJ_51 /* Products */,
+				OBJ_23 /* Tests */,
+				OBJ_27 /* Dependencies */,
+				OBJ_56 /* Products */,
 			);
 			name = "";
 			sourceTree = "<group>";
 		};
-		OBJ_51 /* Products */ = {
+		OBJ_50 /* CommandLine 3.0.0-pre1 */ = {
 			isa = PBXGroup;
 			children = (
-				"Radon::Radon::Product" /* Radon */,
-				"CommandLine::CommandLineKit::Product" /* CommandLineKit.framework */,
+				OBJ_51 /* CommandLineKit */,
+				OBJ_55 /* Package.swift */,
+			);
+			name = "CommandLine 3.0.0-pre1";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_51 /* CommandLineKit */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_52 /* CommandLine.swift */,
+				OBJ_53 /* Option.swift */,
+				OBJ_54 /* StringExtensions.swift */,
+			);
+			name = CommandLineKit;
+			path = ".build/checkouts/CommandLine.git--2975222262383774978/CommandLineKit";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
 				"Cryptor::Cryptor::Product" /* Cryptor.framework */,
+				"CommandLine::CommandLineKit::Product" /* CommandLineKit.framework */,
+				"Radon::Radon::Product" /* Radon */,
+				"Francium::Francium::Product" /* Francium.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -316,9 +366,11 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* Extensions */,
-				OBJ_12 /* Helpers */,
-				OBJ_26 /* Radon.swift */,
-				OBJ_27 /* main.swift */,
+				OBJ_12 /* Generators */,
+				OBJ_16 /* Helpers */,
+				OBJ_19 /* Radon.swift */,
+				OBJ_20 /* Watcher */,
+				OBJ_22 /* main.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -328,10 +380,10 @@
 /* Begin PBXNativeTarget section */
 		"CommandLine::CommandLineKit" /* CommandLineKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_61 /* Build configuration list for PBXNativeTarget "CommandLineKit" */;
+			buildConfigurationList = OBJ_67 /* Build configuration list for PBXNativeTarget "CommandLineKit" */;
 			buildPhases = (
-				OBJ_64 /* Sources */,
-				OBJ_68 /* Frameworks */,
+				OBJ_70 /* Sources */,
+				OBJ_74 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -344,9 +396,9 @@
 		};
 		"CommandLine::SwiftPMPackageDescription" /* CommandLinePackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_70 /* Build configuration list for PBXNativeTarget "CommandLinePackageDescription" */;
+			buildConfigurationList = OBJ_76 /* Build configuration list for PBXNativeTarget "CommandLinePackageDescription" */;
 			buildPhases = (
-				OBJ_73 /* Sources */,
+				OBJ_79 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -358,10 +410,10 @@
 		};
 		"Cryptor::Cryptor" /* Cryptor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_80 /* Build configuration list for PBXNativeTarget "Cryptor" */;
+			buildConfigurationList = OBJ_86 /* Build configuration list for PBXNativeTarget "Cryptor" */;
 			buildPhases = (
-				OBJ_83 /* Sources */,
-				OBJ_94 /* Frameworks */,
+				OBJ_89 /* Sources */,
+				OBJ_100 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,9 +426,9 @@
 		};
 		"Cryptor::SwiftPMPackageDescription" /* CryptorPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_96 /* Build configuration list for PBXNativeTarget "CryptorPackageDescription" */;
+			buildConfigurationList = OBJ_102 /* Build configuration list for PBXNativeTarget "CryptorPackageDescription" */;
 			buildPhases = (
-				OBJ_99 /* Sources */,
+				OBJ_105 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -386,18 +438,49 @@
 			productName = CryptorPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
-		"Radon::Radon" /* Radon */ = {
+		"Francium::Francium" /* Francium */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_102 /* Build configuration list for PBXNativeTarget "Radon" */;
+			buildConfigurationList = OBJ_108 /* Build configuration list for PBXNativeTarget "Francium" */;
 			buildPhases = (
-				OBJ_105 /* Sources */,
-				OBJ_119 /* Frameworks */,
+				OBJ_111 /* Sources */,
+				OBJ_116 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_122 /* PBXTargetDependency */,
-				OBJ_123 /* PBXTargetDependency */,
+			);
+			name = Francium;
+			productName = Francium;
+			productReference = "Francium::Francium::Product" /* Francium.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"Francium::SwiftPMPackageDescription" /* FranciumPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_118 /* Build configuration list for PBXNativeTarget "FranciumPackageDescription" */;
+			buildPhases = (
+				OBJ_121 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FranciumPackageDescription;
+			productName = FranciumPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"Radon::Radon" /* Radon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_124 /* Build configuration list for PBXNativeTarget "Radon" */;
+			buildPhases = (
+				OBJ_127 /* Sources */,
+				OBJ_137 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_141 /* PBXTargetDependency */,
+				OBJ_142 /* PBXTargetDependency */,
+				OBJ_143 /* PBXTargetDependency */,
 			);
 			name = Radon;
 			productName = Radon;
@@ -406,9 +489,9 @@
 		};
 		"Radon::SwiftPMPackageDescription" /* RadonPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_125 /* Build configuration list for PBXNativeTarget "RadonPackageDescription" */;
+			buildConfigurationList = OBJ_145 /* Build configuration list for PBXNativeTarget "RadonPackageDescription" */;
 			buildPhases = (
-				OBJ_128 /* Sources */,
+				OBJ_148 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -434,7 +517,7 @@
 				en,
 			);
 			mainGroup = OBJ_5 /*  */;
-			productRefGroup = OBJ_51 /* Products */;
+			productRefGroup = OBJ_56 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -444,6 +527,8 @@
 				"CommonCrypto::CommonCrypto::ProductTarget" /* CommonCrypto */,
 				"Cryptor::Cryptor" /* Cryptor */,
 				"Cryptor::SwiftPMPackageDescription" /* CryptorPackageDescription */,
+				"Francium::Francium" /* Francium */,
+				"Francium::SwiftPMPackageDescription" /* FranciumPackageDescription */,
 				"Radon::Radon" /* Radon */,
 				"Radon::SwiftPMPackageDescription" /* RadonPackageDescription */,
 				"Radon::radon::ProductTarget" /* radon */,
@@ -456,93 +541,115 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_106 /* String.swift in Sources */,
-				OBJ_107 /* Dir.swift in Sources */,
-				OBJ_108 /* File.swift in Sources */,
-				OBJ_110 /* Folder.swift in Sources */,
-				OBJ_111 /* GeneralGenerator.swift in Sources */,
-				OBJ_112 /* Generator.swift in Sources */,
-				OBJ_113 /* ImageGenerator.swift in Sources */,
-				OBJ_114 /* Logger.swift in Sources */,
-				OBJ_116 /* FolderWatcher.swift in Sources */,
-				OBJ_117 /* Radon.swift in Sources */,
-				OBJ_118 /* main.swift in Sources */,
+				OBJ_106 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_128 /* Sources */ = {
+		OBJ_111 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_129 /* Package.swift in Sources */,
+				OBJ_112 /* Error.swift in Sources */,
+				OBJ_113 /* Dir.swift in Sources */,
+				OBJ_114 /* File.swift in Sources */,
+				OBJ_115 /* IOObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_64 /* Sources */ = {
+		OBJ_121 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_65 /* CommandLine.swift in Sources */,
-				OBJ_66 /* Option.swift in Sources */,
-				OBJ_67 /* StringExtensions.swift in Sources */,
+				OBJ_122 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_73 /* Sources */ = {
+		OBJ_127 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_74 /* Package.swift in Sources */,
+				OBJ_128 /* String.swift in Sources */,
+				OBJ_129 /* GeneralGenerator.swift in Sources */,
+				OBJ_130 /* Generator.swift in Sources */,
+				OBJ_131 /* ImageGenerator.swift in Sources */,
+				OBJ_132 /* Folder.swift in Sources */,
+				OBJ_133 /* Logger.swift in Sources */,
+				OBJ_134 /* Radon.swift in Sources */,
+				OBJ_135 /* FolderWatcher.swift in Sources */,
+				OBJ_136 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_83 /* Sources */ = {
+		OBJ_148 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_84 /* Crypto.swift in Sources */,
-				OBJ_85 /* Cryptor.swift in Sources */,
-				OBJ_86 /* Digest.swift in Sources */,
-				OBJ_87 /* HMAC.swift in Sources */,
-				OBJ_88 /* KeyDerivation.swift in Sources */,
-				OBJ_89 /* Random.swift in Sources */,
-				OBJ_90 /* Status.swift in Sources */,
-				OBJ_91 /* StreamCryptor.swift in Sources */,
-				OBJ_92 /* Updatable.swift in Sources */,
-				OBJ_93 /* Utilities.swift in Sources */,
+				OBJ_149 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_99 /* Sources */ = {
+		OBJ_70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_100 /* Package.swift in Sources */,
+				OBJ_71 /* CommandLine.swift in Sources */,
+				OBJ_72 /* Option.swift in Sources */,
+				OBJ_73 /* StringExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_80 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_90 /* Crypto.swift in Sources */,
+				OBJ_91 /* Cryptor.swift in Sources */,
+				OBJ_92 /* Digest.swift in Sources */,
+				OBJ_93 /* HMAC.swift in Sources */,
+				OBJ_94 /* KeyDerivation.swift in Sources */,
+				OBJ_95 /* Random.swift in Sources */,
+				OBJ_96 /* Status.swift in Sources */,
+				OBJ_97 /* StreamCryptor.swift in Sources */,
+				OBJ_98 /* Updatable.swift in Sources */,
+				OBJ_99 /* Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_122 /* PBXTargetDependency */ = {
+		OBJ_141 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Francium::Francium" /* Francium */;
+			targetProxy = C375A53520F8E28900B79A89 /* PBXContainerItemProxy */;
+		};
+		OBJ_142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Cryptor::Cryptor" /* Cryptor */;
-			targetProxy = C3772FF120F7A3960071ED07 /* PBXContainerItemProxy */;
+			targetProxy = C375A53620F8E28900B79A89 /* PBXContainerItemProxy */;
 		};
-		OBJ_123 /* PBXTargetDependency */ = {
+		OBJ_143 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CommandLine::CommandLineKit" /* CommandLineKit */;
-			targetProxy = C3772FF220F7A3960071ED07 /* PBXContainerItemProxy */;
+			targetProxy = C375A53720F8E28900B79A89 /* PBXContainerItemProxy */;
 		};
-		OBJ_134 /* PBXTargetDependency */ = {
+		OBJ_154 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Radon::Radon" /* Radon */;
-			targetProxy = C3772FF420F7A3970071ED07 /* PBXContainerItemProxy */;
+			targetProxy = C375A53920F8E28A00B79A89 /* PBXContainerItemProxy */;
 		};
-		OBJ_59 /* PBXTargetDependency */ = {
+		OBJ_65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CommandLine::CommandLineKit" /* CommandLineKit */;
-			targetProxy = C3772FF320F7A3970071ED07 /* PBXContainerItemProxy */;
+			targetProxy = C375A53820F8E28A00B79A89 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -550,29 +657,111 @@
 		OBJ_103 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/CommonCrypto.git-1219305460334093717",
-				);
-				INFOPLIST_FILE = Radon.xcodeproj/Radon_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
-				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
-				TARGET_NAME = Radon;
 			};
 			name = Debug;
 		};
 		OBJ_104 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_109 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Radon.xcodeproj/Francium_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Francium;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Francium;
+			};
+			name = Debug;
+		};
+		OBJ_110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Radon.xcodeproj/Francium_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Francium;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Francium;
+			};
+			name = Release;
+		};
+		OBJ_119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_120 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_125 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/CommonCrypto.git-1219305460334093717",
+				);
+				INFOPLIST_FILE = Radon.xcodeproj/Radon_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Radon;
+			};
+			name = Debug;
+		};
+		OBJ_126 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -593,7 +782,7 @@
 			};
 			name = Release;
 		};
-		OBJ_126 /* Debug */ = {
+		OBJ_146 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -602,7 +791,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_127 /* Release */ = {
+		OBJ_147 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -611,13 +800,13 @@
 			};
 			name = Release;
 		};
-		OBJ_132 /* Debug */ = {
+		OBJ_152 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_133 /* Release */ = {
+		OBJ_153 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
@@ -665,19 +854,19 @@
 			};
 			name = Release;
 		};
-		OBJ_57 /* Debug */ = {
+		OBJ_63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_58 /* Release */ = {
+		OBJ_64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		OBJ_62 /* Debug */ = {
+		OBJ_68 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -700,7 +889,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_63 /* Release */ = {
+		OBJ_69 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -720,40 +909,40 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGET_NAME = CommandLineKit;
-			};
-			name = Release;
-		};
-		OBJ_71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		OBJ_72 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		OBJ_77 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		OBJ_78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
-		OBJ_81 /* Debug */ = {
+		OBJ_83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -779,7 +968,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_82 /* Release */ = {
+		OBJ_88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -802,31 +991,13 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = Cryptor;
-			};
-			name = Release;
-		};
-		OBJ_97 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		OBJ_98 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_102 /* Build configuration list for PBXNativeTarget "Radon" */ = {
+		OBJ_102 /* Build configuration list for PBXNativeTarget "CryptorPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_103 /* Debug */,
@@ -835,20 +1006,47 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_125 /* Build configuration list for PBXNativeTarget "RadonPackageDescription" */ = {
+		OBJ_108 /* Build configuration list for PBXNativeTarget "Francium" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_126 /* Debug */,
-				OBJ_127 /* Release */,
+				OBJ_109 /* Debug */,
+				OBJ_110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_131 /* Build configuration list for PBXAggregateTarget "radon" */ = {
+		OBJ_118 /* Build configuration list for PBXNativeTarget "FranciumPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_132 /* Debug */,
-				OBJ_133 /* Release */,
+				OBJ_119 /* Debug */,
+				OBJ_120 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_124 /* Build configuration list for PBXNativeTarget "Radon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_125 /* Debug */,
+				OBJ_126 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_145 /* Build configuration list for PBXNativeTarget "RadonPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_146 /* Debug */,
+				OBJ_147 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_151 /* Build configuration list for PBXAggregateTarget "radon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_152 /* Debug */,
+				OBJ_153 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -862,34 +1060,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_56 /* Build configuration list for PBXAggregateTarget "CommandLine" */ = {
+		OBJ_62 /* Build configuration list for PBXAggregateTarget "CommandLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_57 /* Debug */,
-				OBJ_58 /* Release */,
+				OBJ_63 /* Debug */,
+				OBJ_64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_61 /* Build configuration list for PBXNativeTarget "CommandLineKit" */ = {
+		OBJ_67 /* Build configuration list for PBXNativeTarget "CommandLineKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_62 /* Debug */,
-				OBJ_63 /* Release */,
+				OBJ_68 /* Debug */,
+				OBJ_69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_70 /* Build configuration list for PBXNativeTarget "CommandLinePackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_71 /* Debug */,
-				OBJ_72 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_76 /* Build configuration list for PBXAggregateTarget "CommonCrypto" */ = {
+		OBJ_76 /* Build configuration list for PBXNativeTarget "CommandLinePackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_77 /* Debug */,
@@ -898,20 +1087,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_80 /* Build configuration list for PBXNativeTarget "Cryptor" */ = {
+		OBJ_82 /* Build configuration list for PBXAggregateTarget "CommonCrypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_81 /* Debug */,
-				OBJ_82 /* Release */,
+				OBJ_83 /* Debug */,
+				OBJ_84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_96 /* Build configuration list for PBXNativeTarget "CryptorPackageDescription" */ = {
+		OBJ_86 /* Build configuration list for PBXNativeTarget "Cryptor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_97 /* Debug */,
-				OBJ_98 /* Release */,
+				OBJ_87 /* Debug */,
+				OBJ_88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
