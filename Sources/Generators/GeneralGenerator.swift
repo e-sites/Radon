@@ -10,10 +10,12 @@ import Francium
 
 class GeneralGenerator: Generator {
     let outputFolder: String
+    let removeFolderName: Bool
 
     var allowedExtensions: [String] { return [] }
 
-    required init(outputFolder: String) {
+    required init(outputFolder: String, removeFolderName: Bool = false) {
+        self.removeFolderName = removeFolderName
         self.outputFolder = outputFolder
     }
 

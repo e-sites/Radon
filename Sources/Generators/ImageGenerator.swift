@@ -9,12 +9,17 @@ import Foundation
 import Francium
 
 private class ImageStruct: CustomStringConvertible {
-    let name: String?
+    private let _name: String?
     var subStructs: [ImageStruct] = []
+    var superStruct: ImageStruct?
     var images: [String] = []
+    
+    var name: String? {
+        return self._name?.camelCased().appendIfFirstCharacterIsNumber(with: "_")
+    }
 
     init(name: String? = nil) {
-        self.name = name
+        self._name = name
     }
 
     var hasImages: Bool {
@@ -27,13 +32,31 @@ private class ImageStruct: CustomStringConvertible {
     var description: String {
         return "\(name ?? "nil"): \(hasImages), images: \(images), subStructs: \(subStructs)"
     }
+    
+    var superFolderName: String? {
+        var superStruct: ImageStruct? = self
+        var subNames: [String] = []
+        while superStruct != nil {
+            if let name = superStruct?._name {
+                subNames.insert(name, at: 0)
+            }
+            superStruct = superStruct?.superStruct
+        }
+        subNames.removeFirst()
+        if subNames.isEmpty {
+            return nil
+        }
+        return subNames.joined(separator: "")
+    }
 }
 
 class ImageGenerator: Generator {
     let outputFolder: String
+    let removeFolderName: Bool
 
-    required init(outputFolder: String) {
+    required init(outputFolder: String, removeFolderName: Bool = false) {
         self.outputFolder = outputFolder
+        self.removeFolderName = removeFolderName
     }
 
     private var _parsedImageNames: [String] = []
@@ -105,7 +128,11 @@ class ImageGenerator: Generator {
         }
 
         for imageName in imageStruct.images {
-            let varName = imageName.camelCased().appendIfFirstCharacterIsNumber(with: "_")
+            var varName = imageName
+            if let superFolderName = imageStruct.superFolderName, removeFolderName == true, varName.hasPrefix(superFolderName) {
+                varName = String(varName.dropFirst(superFolderName.count))
+            }
+            varName = varName.camelCased().appendIfFirstCharacterIsNumber(with: "_")
             let uiimage = "_image(named: \"\(imageName)\")"
             lines.append("public static var \(varName): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
         }
@@ -122,9 +149,10 @@ class ImageGenerator: Generator {
         if folderName.hasSuffix(".xcassets") {
             folderName = folderName.replacingOccurrences(of: ".xcassets", with: "")
         }
-        let structName = folderName.camelCased().appendIfFirstCharacterIsNumber(with: "_")
-        let newStruct = ImageStruct(name: structName)
+        
+        let newStruct = ImageStruct(name: folderName)
         imageStruct.subStructs.append(newStruct)
+        newStruct.superStruct = imageStruct
         folder.subFolders.forEach { file in
             _parse(folder: file, in: newStruct)
         }

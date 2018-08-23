@@ -54,6 +54,8 @@ Usage: Pods/Radon/bin/radon [options]
       The folder to write the Radon.swift files to
   -w, --watch:
       Automatically watch the 'folder'
+  -r, --remove_foldernames:
+      Remove the name of the folder from the filename
 ```
 
 With the `--watch` option the cli app wil automatically scan the folder and generate the Radon files when any changes have been made inside that folder.
@@ -61,7 +63,7 @@ With the `--watch` option the cli app wil automatically scan the folder and gene
 So for instance:
 
 ```
-$ Pods/Radon/bin/radon --folder ./Resources/ --output ./Classes/Generated/ --watch
+$ Pods/Radon/bin/radon --folder ./Resources/ --output ./Classes/Generated/ --watch --remove_foldernames
 ```
 
 This will generate two files:

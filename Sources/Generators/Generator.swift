@@ -12,7 +12,7 @@ protocol Generator {
     var allowedExtensions: [String] { get }
     func parse(folder: Folder)
 
-    init(outputFolder: String)
+    init(outputFolder: String, removeFolderName: Bool)
 }
 
 

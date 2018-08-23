@@ -29,7 +29,13 @@ let watchOption = BoolOption(shortFlag: "w",
                              helpMessage: "Automatically watch the `folder`")
 
 
-cli.addOptions(folderOption, outOption, watchOption)
+let removeFoldersInFileNameOption = BoolOption(shortFlag: "r",
+                             longFlag: "remove_foldernames",
+                             required: false,
+                             helpMessage: "Remove the name of the folder from the filename")
+
+
+cli.addOptions(folderOption, outOption, watchOption, removeFoldersInFileNameOption)
 
 do {
     try cli.parse()
@@ -41,5 +47,5 @@ do {
 }
 
 
-let radon = Radon(folder: folderOption.value!, outputFolder: outOption.value ?? "./", watch: watchOption.wasSet)
+let radon = Radon(folder: folderOption.value!, outputFolder: outOption.value ?? "./", watch: watchOption.wasSet, removeFolderName: removeFoldersInFileNameOption.wasSet)
 radon.run()

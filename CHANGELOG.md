@@ -1,5 +1,8 @@
 # Changelog Radon
 
+## v1.3.0 (13-07-2018)
+- Added the `remove_foldernames` option
+
 ## v1.2.0 (13-07-2018)
 - Implemented `Francium`.
 

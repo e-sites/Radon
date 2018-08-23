@@ -9,7 +9,7 @@ import Foundation
 import Francium
 
 class Radon {
-    static var version: String = "1.2.0"
+    static var version: String = "1.3.0"
 
     static var fileName = "Radon"
 
@@ -17,9 +17,10 @@ class Radon {
     private let outputFolder: String
     private var _countFiles = 0
     private var _shouldWatch = false
+    private var _removeFolderName = false
     private var _countFolders = 0
 
-    init(folder aFolder: String, outputFolder: String, watch: Bool = true) {
+    init(folder aFolder: String, outputFolder: String, watch: Bool = true, removeFolderName: Bool = false) {
         if !File(path: outputFolder).isDirectory {
             Logger.fatalError("'\(outputFolder)' does not exist")
         }
@@ -41,6 +42,7 @@ class Radon {
         }
         self.outputFolder = aFolder
         _shouldWatch = watch
+        _removeFolderName = removeFolderName
     }
 
     func run() {
@@ -52,8 +54,8 @@ class Radon {
             self._countFolders = 0
             let folder = Folder(name: "")
             self.parseFolder(mainFolderFile, folder: folder)
-            GeneralGenerator(outputFolder: self.outputFolder).parse(folder: folder)
-            let imageGenerator = ImageGenerator(outputFolder: self.outputFolder)
+            GeneralGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName).parse(folder: folder)
+            let imageGenerator = ImageGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName)
             imageGenerator.parse(folder: folder)
             Logger.log(Logger.colorWrap(text: "Generated new ", in: "95") +
                 Logger.colorWrap(text: Radon.fileName + ".swift", in: "4;95") +
