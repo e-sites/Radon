@@ -1,5 +1,8 @@
 # Changelog Radon
 
+## v1.4.0 (05-04-2019)
+- Swift 5.0
+
 ## v1.3.0 (13-07-2018)
 - Added the `remove_foldernames` option
 

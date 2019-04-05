@@ -1,7 +1,7 @@
 all: help
 
 build:
-	swift build -Xswiftc -static-stdlib -c release
+	swift build -c release
 	cp .build/release/radon bin/
 	chmod +x bin/radon
 

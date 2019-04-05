@@ -60,7 +60,7 @@ public enum StringCaseFormat {
 
 public extension String {
 
-    public func caseSplit() -> [String] {
+    func caseSplit() -> [String] {
         var res: [String] = []
         let trim = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let alphanumerics = CharacterSet.alphanumerics
@@ -110,7 +110,7 @@ public extension String {
         return res
     }
 
-    public func camelCased(_ format: StringCaseFormat.CamelCase = .default) -> String {
+    func camelCased(_ format: StringCaseFormat.CamelCase = .default) -> String {
         var res: [String] = []
         for (i, str) in self.caseSplit().enumerated() {
             if i == 0 && format == .default {

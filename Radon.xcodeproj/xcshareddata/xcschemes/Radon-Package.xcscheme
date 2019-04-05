@@ -14,51 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Cryptor::Cryptor"
-               BuildableName = "Cryptor.framework"
-               BlueprintName = "Cryptor"
-               ReferencedContainer = "container:Radon.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CommandLine::CommandLineKit"
-               BuildableName = "CommandLineKit.framework"
-               BlueprintName = "CommandLineKit"
-               ReferencedContainer = "container:Radon.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Radon::Radon"
                BuildableName = "Radon"
                BlueprintName = "Radon"
-               ReferencedContainer = "container:Radon.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Francium::Francium"
-               BuildableName = "Francium.framework"
-               BlueprintName = "Francium"
                ReferencedContainer = "container:Radon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -84,15 +42,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Cryptor::Cryptor"
-            BuildableName = "Cryptor.framework"
-            BlueprintName = "Cryptor"
+            BlueprintIdentifier = "Radon::Radon"
+            BuildableName = "Radon"
+            BlueprintName = "Radon"
             ReferencedContainer = "container:Radon.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -41,7 +41,7 @@ class FolderWatcher {
 
     private func _startScan() {
         _timer = Timer(timeInterval: 1, target: self, selector: #selector(_scan), userInfo: nil, repeats: false)
-        RunLoop.main.add(_timer!, forMode: .commonModes)
+        RunLoop.main.add(_timer!, forMode: .common)
     }
 
     @objc

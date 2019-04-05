@@ -79,7 +79,7 @@ class ImageGenerator: Generator {
         var lines: [String] = [
             headerLines(fileName: Radon.fileName),
             "#if os(OSX)",
-            "public typealias RadonImage = NSImage",
+            "typealias RadonImage = NSImage",
             "import AppKit",
             "",
             "private func _image(named name: String) -> RadonImage? {",
@@ -87,7 +87,7 @@ class ImageGenerator: Generator {
             "}",
             "",
             "#else",
-            "public typealias RadonImage = UIImage",
+            "typealias RadonImage = UIImage",
             "import UIKit",
             "",
             "private func _image(named name: String) -> RadonImage? {",
@@ -96,7 +96,7 @@ class ImageGenerator: Generator {
             "",
             "#endif",
             "",
-            "public extension \(Radon.fileName) {",
+            "extension \(Radon.fileName) {",
         ]
 
         _print(imageStruct: imageStruct, lines: &lines)
@@ -119,7 +119,7 @@ class ImageGenerator: Generator {
 
         if let name = imageStruct.name {
             let structName = name.camelCased().appendIfFirstCharacterIsNumber(with: "_")
-            lines.append("public struct \(structName) {".tabbed(indent))
+            lines.append("struct \(structName) {".tabbed(indent))
             lines.append("private init() { }".tabbed(indent + 1))
         }
 
@@ -134,7 +134,7 @@ class ImageGenerator: Generator {
             }
             varName = varName.camelCased().appendIfFirstCharacterIsNumber(with: "_")
             let uiimage = "_image(named: \"\(imageName)\")"
-            lines.append("public static var \(varName): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
+            lines.append("static var \(varName): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
         }
 
         if imageStruct.name != nil {
