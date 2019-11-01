@@ -9,7 +9,7 @@ import Foundation
 import Francium
 
 class Radon {
-    static var version: String = "1.4.0"
+    static var version: String = "1.4.1"
 
     static var fileName = "Radon"
 

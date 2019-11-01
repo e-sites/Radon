@@ -1,5 +1,8 @@
 # Changelog Radon
 
+## v1.4.1 (01-11-2019)
+- Private functions dropped `_`
+
 ## v1.4.0 (05-04-2019)
 - Swift 5.0
 

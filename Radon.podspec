@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = "bin/radon"
   s.source_files   = "bin/*.h"
   s.requires_arc   = true
+  s.swift_versions = [ '5.0', '5.1' ]
 end

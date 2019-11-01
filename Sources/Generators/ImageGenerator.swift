@@ -81,20 +81,18 @@ class ImageGenerator: Generator {
             "#if os(OSX)",
             "typealias RadonImage = NSImage",
             "import AppKit",
-            "",
-            "private func _image(named name: String) -> RadonImage? {",
-            "return NSImage(named: NSImage.Name(name))".tabbed(1),
-            "}",
-            "",
             "#else",
             "typealias RadonImage = UIImage",
             "import UIKit",
-            "",
-            "private func _image(named name: String) -> RadonImage? {",
-            "return UIImage(named: name)".tabbed(1),
-            "}",
-            "",
             "#endif",
+            "",
+            "private func image(named name: String) -> RadonImage? {",
+            "#if os(OSX)",
+            "return NSImage(named: NSImage.Name(name))".tabbed(1),
+            "#else",
+            "return UIImage(named: name)".tabbed(1),
+            "#endif",
+            "}",
             "",
             "extension \(Radon.fileName) {",
         ]
@@ -133,7 +131,7 @@ class ImageGenerator: Generator {
                 varName = String(varName.dropFirst(superFolderName.count))
             }
             varName = varName.camelCased().appendIfFirstCharacterIsNumber(with: "_")
-            let uiimage = "_image(named: \"\(imageName)\")"
+            let uiimage = "image(named: \"\(imageName)\")"
             lines.append("static var \(varName): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
         }
 
