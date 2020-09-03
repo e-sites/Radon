@@ -1,5 +1,8 @@
 # Changelog Radon
 
+## v1.4.2 (03-09-2020)
+- Use `Bundle(in: Radon.self)`
+
 ## v1.4.1 (01-11-2019)
 - Private functions dropped `_`
 

@@ -90,7 +90,7 @@ class ImageGenerator: Generator {
             "#if os(OSX)",
             "return NSImage(named: NSImage.Name(name))".tabbed(1),
             "#else",
-            "return UIImage(named: name)".tabbed(1),
+            "return UIImage(named: name, in: Bundle(for: Radon.self), compatibleWith: nil)".tabbed(1),
             "#endif",
             "}",
             "",

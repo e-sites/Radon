@@ -26,7 +26,7 @@ class GeneralGenerator: Generator {
     func parse(folder: Folder) {
         let contents = [
             headerLines(fileName: Radon.fileName),
-            "struct \(Radon.fileName) {",
+            "class \(Radon.fileName) {",
             "private init() { }".tabbed(1),
             "}"
         ]
