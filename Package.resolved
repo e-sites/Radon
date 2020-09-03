@@ -14,9 +14,9 @@
         "package": "CommandLineKit",
         "repositoryURL": "https://github.com/basvankuijck/CommandLine.git",
         "state": {
-          "branch": null,
-          "revision": "746901704d889f516681772c14840ebffd0d4fb9",
-          "version": "4.1.0"
+          "branch": "master",
+          "revision": "b83f09a25224c29b820f9e8d1311569736021820",
+          "version": null
         }
       },
       {
@@ -24,7 +24,7 @@
         "repositoryURL": "https://github.com/e-sites/Francium.git",
         "state": {
           "branch": null,
-          "revision": "9a8050cdf8d5b8fc2d22177e87c731f014947f48",
+          "revision": "11e846f7e35f086496d82359fdd171ff8cdfc6a2",
           "version": "1.0.2"
         }
       }
