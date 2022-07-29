@@ -1,5 +1,8 @@
 # Changelog Radon
 
+## v2.0.0 (29-08-2022)
+- Added `+strings`
+
 ## v1.4.2 (03-09-2020)
 - Use `Bundle(in: Radon.self)`
 

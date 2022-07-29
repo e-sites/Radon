@@ -1,8 +1,9 @@
 all: help
 
 build:
-	swift build -c release
-	cp .build/release/radon bin/
+	swift build --configuration release --arch arm64 --arch x86_64
+	rm -rf bin/radon
+	cp .build/Apple/Products/Release/radon bin/
 	chmod +x bin/radon
 
 help:

@@ -45,6 +45,10 @@ extension String {
         }
         return "\(tab)\(self)"
     }
+    
+    var predefinedString: String {
+        return "`\(self)`"
+    }
 }
 
 

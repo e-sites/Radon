@@ -34,8 +34,12 @@ let removeFoldersInFileNameOption = BoolOption(shortFlag: "r",
                              required: false,
                              helpMessage: "Remove the name of the folder from the filename")
 
+let stripAssetsOption = BoolOption(shortFlag: "s",
+                             longFlag: "strip_xcassets",
+                             required: false,
+                             helpMessage: "Remove Assets.xcassets from the image generator")
 
-cli.addOptions(folderOption, outOption, watchOption, removeFoldersInFileNameOption)
+cli.addOptions(folderOption, outOption, watchOption, removeFoldersInFileNameOption, stripAssetsOption)
 
 do {
     try cli.parse()
@@ -47,5 +51,11 @@ do {
 }
 
 
-let radon = Radon(folder: folderOption.value!, outputFolder: outOption.value ?? "./", watch: watchOption.wasSet, removeFolderName: removeFoldersInFileNameOption.wasSet)
+let radon = Radon(
+    folder: folderOption.value!,
+    outputFolder: outOption.value ?? "./",
+    watch: watchOption.wasSet,
+    removeFolderName: removeFoldersInFileNameOption.wasSet,
+    stripXCAssets: stripAssetsOption.wasSet
+)
 radon.run()

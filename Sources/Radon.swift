@@ -9,7 +9,7 @@ import Foundation
 import Francium
 
 class Radon {
-    static var version: String = "1.4.2"
+    static var version: String = "2.0.0"
 
     static var fileName = "Radon"
 
@@ -18,9 +18,16 @@ class Radon {
     private var _countFiles = 0
     private var _shouldWatch = false
     private var _removeFolderName = false
+    private var _stripXCAssets = false
     private var _countFolders = 0
 
-    init(folder aFolder: String, outputFolder: String, watch: Bool = true, removeFolderName: Bool = false) {
+    init(
+        folder aFolder: String,
+        outputFolder: String,
+        watch: Bool = true,
+        removeFolderName: Bool = false,
+        stripXCAssets: Bool = false
+    ) {
         if !File(path: outputFolder).isDirectory {
             Logger.fatalError("'\(outputFolder)' does not exist")
         }
@@ -40,6 +47,7 @@ class Radon {
         if aFolder.hasSuffix("/") {
             aFolder.removeLast()
         }
+        self._stripXCAssets = stripXCAssets
         self.outputFolder = aFolder
         _shouldWatch = watch
         _removeFolderName = removeFolderName
@@ -54,9 +62,15 @@ class Radon {
             self._countFolders = 0
             let folder = Folder(name: "")
             self.parseFolder(mainFolderFile, folder: folder)
+            
             GeneralGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName).parse(folder: folder)
-            let imageGenerator = ImageGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName)
+            
+            let imageGenerator = ImageGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName, skipXCAssets: self._stripXCAssets)
             imageGenerator.parse(folder: folder)
+            
+            let localizeGenerator = LocalizeGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName)
+            localizeGenerator.parse(folder: folder)
+            
             Logger.log(Logger.colorWrap(text: "Generated new ", in: "95") +
                 Logger.colorWrap(text: Radon.fileName + ".swift", in: "4;95") +
                 Logger.colorWrap(text: " (Scanned \(self._countFolders) folders, \(self._countFiles) files)", in: "90")

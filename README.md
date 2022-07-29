@@ -70,6 +70,7 @@ This will generate two files:
 
 - Radon.swift
 - Radon+images.swift
+- Radon+localization.swift
 
 You can use these two files in your project.
 

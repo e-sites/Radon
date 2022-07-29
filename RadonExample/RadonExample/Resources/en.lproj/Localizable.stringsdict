@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>apple %lld</key>
+  <dict>
+    <key>NSStringLocalizedFormatKey</key>
+    <string>%#@VARIABLE@</string>
+    <key>VARIABLE</key>
+    <dict>
+      <key>NSStringFormatSpecTypeKey</key>
+      <string>NSStringPluralRuleType</string>
+      <key>NSStringFormatValueTypeKey</key>
+      <string>lld</string>
+      <key>one</key>
+      <string>%lld apple</string>
+      <key>other</key>
+      <string>%lld apples</string>
+    </dict>
+  </dict>
+  <key>pears %lld</key>
+  <dict>
+    <key>NSStringLocalizedFormatKey</key>
+    <string>%#@VARIABLE@</string>
+    <key>VARIABLE</key>
+    <dict>
+      <key>NSStringFormatSpecTypeKey</key>
+      <string>NSStringPluralRuleType</string>
+      <key>NSStringFormatValueTypeKey</key>
+      <string>lld</string>
+      <key>one</key>
+      <string>%lld pear</string>
+      <key>other</key>
+      <string>%lld pears</string>
+    </dict>
+  </dict>
+</dict>
+</plist>

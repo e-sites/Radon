@@ -52,10 +52,18 @@ private class ImageStruct: CustomStringConvertible {
 
 class ImageGenerator: Generator {
     let outputFolder: String
+    let skipXCAssets: Bool
     let removeFolderName: Bool
 
     required init(outputFolder: String, removeFolderName: Bool = false) {
         self.outputFolder = outputFolder
+        self.skipXCAssets = false
+        self.removeFolderName = removeFolderName
+    }
+    
+    required init(outputFolder: String, removeFolderName: Bool = false, skipXCAssets: Bool = false) {
+        self.outputFolder = outputFolder
+        self.skipXCAssets = skipXCAssets
         self.removeFolderName = removeFolderName
     }
 
@@ -117,8 +125,7 @@ class ImageGenerator: Generator {
 
         if let name = imageStruct.name {
             let structName = name.camelCased().appendIfFirstCharacterIsNumber(with: "_")
-            lines.append("struct \(structName) {".tabbed(indent))
-            lines.append("private init() { }".tabbed(indent + 1))
+            lines.append("enum \(structName.predefinedString) {".tabbed(indent))
         }
 
         for subStruct in imageStruct.subStructs {
@@ -132,7 +139,7 @@ class ImageGenerator: Generator {
             }
             varName = varName.camelCased().appendIfFirstCharacterIsNumber(with: "_")
             let uiimage = "image(named: \"\(imageName)\")"
-            lines.append("static var \(varName): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
+            lines.append("static var \(varName.predefinedString): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
         }
 
         if imageStruct.name != nil {
@@ -142,8 +149,14 @@ class ImageGenerator: Generator {
     
 
     private func _parse(folder: Folder, in imageStruct: ImageStruct) {
-
         var folderName = folder.name
+        if folderName == "Assets" && skipXCAssets && imageStruct.superStruct?.name == nil {
+            folder.subFolders.forEach { file in
+                _parse(folder: file, in: imageStruct)
+            }
+            return
+            
+        }
         if folderName.hasSuffix(".xcassets") {
             folderName = folderName.replacingOccurrences(of: ".xcassets", with: "")
         }
