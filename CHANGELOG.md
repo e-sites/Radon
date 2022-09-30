@@ -1,5 +1,8 @@
 # Changelog Radon
 
+## v2.1.0 (30-09-2022)
+- Added `Locale` for plural funcs
+
 ## v2.0.0 (29-08-2022)
 - Added `+strings`
 

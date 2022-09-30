@@ -52,12 +52,20 @@ class LocalizeGenerator: Generator {
     
     let outputFolder: String
     let removeFolderName: Bool
+    let fullLocalizationKeys: Bool
     private var localizationFolders: [String] = []
     private var locales: [String: LocaleObject] = [:]
+    
+    init(outputFolder: String, removeFolderName: Bool = false, fullLocalizationKeys: Bool = false) {
+        self.outputFolder = outputFolder
+        self.removeFolderName = removeFolderName
+        self.fullLocalizationKeys = fullLocalizationKeys
+    }
     
     required init(outputFolder: String, removeFolderName: Bool = false) {
         self.outputFolder = outputFolder
         self.removeFolderName = removeFolderName
+        self.fullLocalizationKeys = false
     }
     
     func parse(folder: Folder) {
@@ -86,6 +94,7 @@ class LocalizeGenerator: Generator {
             "import Foundation",
             "",
             "extension \(Radon.fileName) {",
+            "",
             "enum \(name) {".tabbed(1)
         ]
         iterate(obj: baseObj, lines: &lines)
@@ -130,7 +139,7 @@ class LocalizeGenerator: Generator {
     
     private func createStaticVar(_ sub: LocaleObject) -> String {
         if sub.key.isPlural {
-            return "static func \(sub.name.predefinedString)(_ count: Int) -> String { String(format: NSLocalizedString(\"\(sub.key.key)\", comment: \"\"), count) }"
+            return "static func \(sub.name.predefinedString)(_ count: Int, locale: Locale = Radon.defaultPluralLocale) -> String { String(format: NSLocalizedString(\"\(sub.key.key)\", comment: \"\"), locale: locale, count) }"
         }
         
         return "static var \(sub.name.predefinedString): String { NSLocalizedString(\"\(sub.key.key)\", comment: \"\") }"
@@ -150,6 +159,22 @@ class LocalizeGenerator: Generator {
     
     private func iterate(key: StringKey, parent: LocaleObject) -> LocaleObject {
         var parent = parent
+        
+        if fullLocalizationKeys {
+            let name = removePlaceholder(
+                key.key
+                    .lowercased()
+                    .appendIfFirstCharacterIsNumber(with: "_")
+            )
+                .components(separatedBy: CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "0123456789_")).inverted)
+                .joined()
+            
+            let obj = LocaleObject(name: name)
+            obj.key = key
+            parent.subs.append(obj)
+            return parent
+        }
+        
         for spl in key.key.components(separatedBy: "_") {
             let name = removePlaceholder(
                 spl

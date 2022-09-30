@@ -26,7 +26,11 @@ class GeneralGenerator: Generator {
     func parse(folder: Folder) {
         let contents = [
             headerLines(fileName: Radon.fileName),
+            "import Foundation",
+            "",
             "class \(Radon.fileName) {",
+            "static var defaultPluralLocale = Locale.current".tabbed(1),
+            "",
             "private init() { }".tabbed(1),
             "}"
         ]

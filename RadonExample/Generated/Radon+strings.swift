@@ -10,42 +10,16 @@ import Foundation
 
 extension Radon {
     enum strings {
-        enum `a` {
-            enum `_1very` {
-                enum `deep` {
-                    enum `nested` {
-                        enum `key` {
-                            static var `example`: String { NSLocalizedString("a_1very_deep_nested_key_example", comment: "") }
-                        }
-                    }
-                }
-            }
-        }
-        enum `about` {
-            static var `name`: String { NSLocalizedString("about_name", comment: "") }
-        }
+        static var `a_1very_deep_nested_key_example`: String { NSLocalizedString("a_1very_deep_nested_key_example", comment: "") }
+        static var `about_name`: String { NSLocalizedString("about_name", comment: "") }
         static func `apple`(_ count: Int) -> String { String(format: NSLocalizedString("apple %lld", comment: ""), count) }
-        enum `confirm` {
-            enum `city` {
-                static var `name`: String { NSLocalizedString("confirm_city_name%@", comment: "") }
-            }
-        }
-        enum `dashboard` {
-            static var `title`: String { NSLocalizedString("dashboard_title", comment: "") }
-        }
+        static var `confirm_city_name`: String { NSLocalizedString("confirm_city_name%@", comment: "") }
+        static var `dashboard_title`: String { NSLocalizedString("dashboard_title", comment: "") }
         static func `pears`(_ count: Int) -> String { String(format: NSLocalizedString("pears %lld", comment: ""), count) }
-        enum `settings` {
-            enum `personal` {
-                static var `title`: String { NSLocalizedString("settings_personal_title", comment: "") }
-            }
-            static var `title`: String { NSLocalizedString("settings_title", comment: "") }
-        }
-        enum `somekey` {
-            enum `override` {
-                static var `value`: String { NSLocalizedString("somekey_override", comment: "") }
-                static var `stuff`: String { NSLocalizedString("somekey_override_stuff", comment: "") }
-            }
-        }
+        static var `settings_personal_title`: String { NSLocalizedString("settings_personal_title", comment: "") }
+        static var `settings_title`: String { NSLocalizedString("settings_title", comment: "") }
+        static var `somekey_override`: String { NSLocalizedString("somekey_override", comment: "") }
+        static var `somekey_override_stuff`: String { NSLocalizedString("somekey_override_stuff", comment: "") }
         static var `yes`: String { NSLocalizedString("yes", comment: "") }
     }
 }

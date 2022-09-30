@@ -9,7 +9,7 @@ import Foundation
 import Francium
 
 class Radon {
-    static var version: String = "2.0.0"
+    static var version: String = "2.1.0"
 
     static var fileName = "Radon"
 
@@ -20,13 +20,15 @@ class Radon {
     private var _removeFolderName = false
     private var _stripXCAssets = false
     private var _countFolders = 0
+    private var _fullLocalizationKeys = false
 
     init(
         folder aFolder: String,
         outputFolder: String,
         watch: Bool = true,
         removeFolderName: Bool = false,
-        stripXCAssets: Bool = false
+        stripXCAssets: Bool = false,
+        fullLocalizationKeys: Bool = false
     ) {
         if !File(path: outputFolder).isDirectory {
             Logger.fatalError("'\(outputFolder)' does not exist")
@@ -49,6 +51,7 @@ class Radon {
         }
         self._stripXCAssets = stripXCAssets
         self.outputFolder = aFolder
+        self._fullLocalizationKeys = fullLocalizationKeys
         _shouldWatch = watch
         _removeFolderName = removeFolderName
     }
@@ -68,7 +71,7 @@ class Radon {
             let imageGenerator = ImageGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName, skipXCAssets: self._stripXCAssets)
             imageGenerator.parse(folder: folder)
             
-            let localizeGenerator = LocalizeGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName)
+            let localizeGenerator = LocalizeGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName, fullLocalizationKeys: self._fullLocalizationKeys)
             localizeGenerator.parse(folder: folder)
             
             Logger.log(Logger.colorWrap(text: "Generated new ", in: "95") +

@@ -39,7 +39,12 @@ let stripAssetsOption = BoolOption(shortFlag: "s",
                              required: false,
                              helpMessage: "Remove Assets.xcassets from the image generator")
 
-cli.addOptions(folderOption, outOption, watchOption, removeFoldersInFileNameOption, stripAssetsOption)
+let fullLocalizationKeysOption = BoolOption(shortFlag: "l",
+                             longFlag: "full_localization_keys",
+                             required: false,
+                             helpMessage: "Use R.strings.full_localization_key output instead of R.strings.some.key")
+
+cli.addOptions(folderOption, outOption, watchOption, removeFoldersInFileNameOption, stripAssetsOption, fullLocalizationKeysOption)
 
 do {
     try cli.parse()
@@ -56,6 +61,7 @@ let radon = Radon(
     outputFolder: outOption.value ?? "./",
     watch: watchOption.wasSet,
     removeFolderName: removeFoldersInFileNameOption.wasSet,
-    stripXCAssets: stripAssetsOption.wasSet
+    stripXCAssets: stripAssetsOption.wasSet,
+    fullLocalizationKeys: fullLocalizationKeysOption.wasSet
 )
 radon.run()
