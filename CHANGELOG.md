@@ -1,5 +1,11 @@
 # Changelog Radon
 
+## v2.3.0 (09-11-2022)
+- Added bundle parameter
+
+## v2.2.0 (11-10-2022)
+- Added colors
+
 ## v2.1.0 (30-09-2022)
 - Added `Locale` for plural funcs
 

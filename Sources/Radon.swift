@@ -8,23 +8,29 @@
 import Foundation
 import Francium
 
+struct Config {
+    let bundleName: String
+    let outputFolder: String
+    let removeFolderName: Bool
+    let stripXCAssets: Bool
+    let fullLocalizationKeys: Bool
+}
+
 class Radon {
-    static var version: String = "2.1.0"
+    static var version: String = "2.3.0"
 
     static var fileName = "Radon"
+    private let _config: Config
 
     private let mainFolder: String
-    private let outputFolder: String
     private var _countFiles = 0
     private var _shouldWatch = false
-    private var _removeFolderName = false
-    private var _stripXCAssets = false
     private var _countFolders = 0
-    private var _fullLocalizationKeys = false
 
     init(
         folder aFolder: String,
         outputFolder: String,
+        bundleName: String,
         watch: Bool = true,
         removeFolderName: Bool = false,
         stripXCAssets: Bool = false,
@@ -49,11 +55,8 @@ class Radon {
         if aFolder.hasSuffix("/") {
             aFolder.removeLast()
         }
-        self._stripXCAssets = stripXCAssets
-        self.outputFolder = aFolder
-        self._fullLocalizationKeys = fullLocalizationKeys
         _shouldWatch = watch
-        _removeFolderName = removeFolderName
+        _config = Config(bundleName: bundleName, outputFolder: aFolder, removeFolderName: removeFolderName, stripXCAssets: stripXCAssets, fullLocalizationKeys: fullLocalizationKeys)
     }
 
     func run() {
@@ -66,13 +69,16 @@ class Radon {
             let folder = Folder(name: "")
             self.parseFolder(mainFolderFile, folder: folder)
             
-            GeneralGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName).parse(folder: folder)
+            let generators: [Generator.Type] = [
+                GeneralGenerator.self,
+                ImageGenerator.self,
+                LocalizeGenerator.self,
+                ColorsGenerator.self
+            ]
             
-            let imageGenerator = ImageGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName, skipXCAssets: self._stripXCAssets)
-            imageGenerator.parse(folder: folder)
-            
-            let localizeGenerator = LocalizeGenerator(outputFolder: self.outputFolder, removeFolderName: self._removeFolderName, fullLocalizationKeys: self._fullLocalizationKeys)
-            localizeGenerator.parse(folder: folder)
+            for generator in generators {
+                generator.init(config: self._config).parse(folder: folder)
+            }
             
             Logger.log(Logger.colorWrap(text: "Generated new ", in: "95") +
                 Logger.colorWrap(text: Radon.fileName + ".swift", in: "4;95") +
@@ -89,6 +95,7 @@ class Radon {
             RunLoop.main.run()
         } else {
             fire()
+            exit(EX_OK)
         }
         
     }
@@ -99,8 +106,8 @@ class Radon {
             .forEach { file in
                 if file.isDirectory {
                     if file.extensionName == "appiconset" || file.extensionName == "launchimage" {
-
-                    } else if file.extensionName == "imageset" {
+                        
+                    } else if file.extensionName == "imageset" || file.extensionName == "colorset" {
                         folder.files.append(file)
                         self._countFiles += 1
                     } else {

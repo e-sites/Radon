@@ -47,7 +47,8 @@ extension String {
     }
     
     var predefinedString: String {
-        return "`\(self)`"
+        let value = replacingOccurrences(of: ".", with: "_")
+        return "`\(value)`"
     }
 }
 

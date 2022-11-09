@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		C323F6B22893ECC9003E3639 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C323F6B12893ECC8003E3639 /* Sequence.swift */; };
+		C3E2BEB828F4396800802020 /* ColorsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2BEB728F4396800802020 /* ColorsGenerator.swift */; };
+		C3E2BEBA28F43A6E00802020 /* ObjStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2BEB928F43A6E00802020 /* ObjStruct.swift */; };
 		OBJ_100 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* Random.swift */; };
 		OBJ_101 /* SSLPointerTricks.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* SSLPointerTricks.swift */; };
 		OBJ_102 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* Status.swift */; };
@@ -92,6 +94,8 @@
 
 /* Begin PBXFileReference section */
 		C323F6B12893ECC8003E3639 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		C3E2BEB728F4396800802020 /* ColorsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsGenerator.swift; sourceTree = "<group>"; };
+		C3E2BEB928F43A6E00802020 /* ObjStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjStruct.swift; sourceTree = "<group>"; };
 		OBJ_10 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		OBJ_11 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		OBJ_12 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				OBJ_26 /* Generator.swift */,
 				OBJ_27 /* ImageGenerator.swift */,
 				OBJ_28 /* LocalizeGenerator.swift */,
+				C3E2BEB728F4396800802020 /* ColorsGenerator.swift */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			children = (
 				OBJ_30 /* Folder.swift */,
 				OBJ_31 /* Logger.swift */,
+				C3E2BEB928F43A6E00802020 /* ObjStruct.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -312,7 +318,7 @@
 			path = .build/checkouts/BlueCryptor/Sources/Cryptor;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -324,7 +330,6 @@
 				OBJ_73 /* RadonExample */,
 				OBJ_74 /* Assets */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_61 /* CommandLineKit */ = {
@@ -528,7 +533,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_67 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -587,8 +592,10 @@
 				C323F6B22893ECC9003E3639 /* Sequence.swift in Sources */,
 				OBJ_140 /* Logger.swift in Sources */,
 				OBJ_141 /* Radon.swift in Sources */,
+				C3E2BEB828F4396800802020 /* ColorsGenerator.swift in Sources */,
 				OBJ_142 /* FolderWatcher.swift in Sources */,
 				OBJ_143 /* main.swift in Sources */,
+				C3E2BEBA28F43A6E00802020 /* ObjStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

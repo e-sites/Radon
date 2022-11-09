@@ -9,6 +9,9 @@
 import Foundation
 import CommandLineKit
 
+let radon: Radon
+
+#if !DEBUG
 let cli = CommandLineKit.CommandLine()
 
 let folderOption = StringOption(shortFlag: "f",
@@ -21,6 +24,12 @@ let outOption = StringOption(shortFlag: "o",
                              longFlag: "output",
                              required: false,
                              helpMessage: "The folder to write the Radon.swift files to")
+
+
+let bundleOption = StringOption(shortFlag: "b",
+                             longFlag: "bundle",
+                             required: false,
+                             helpMessage: "The bundle to be used (default: Bundle.main)")
 
 
 let watchOption = BoolOption(shortFlag: "w",
@@ -44,7 +53,7 @@ let fullLocalizationKeysOption = BoolOption(shortFlag: "l",
                              required: false,
                              helpMessage: "Use R.strings.full_localization_key output instead of R.strings.some.key")
 
-cli.addOptions(folderOption, outOption, watchOption, removeFoldersInFileNameOption, stripAssetsOption, fullLocalizationKeysOption)
+cli.addOptions(folderOption, outOption, bundleOption, watchOption, removeFoldersInFileNameOption, stripAssetsOption, fullLocalizationKeysOption)
 
 do {
     try cli.parse()
@@ -56,12 +65,24 @@ do {
 }
 
 
-let radon = Radon(
+radon = Radon(
     folder: folderOption.value!,
     outputFolder: outOption.value ?? "./",
+    bundleName: bundleOption.value ?? "Bundle.main",
     watch: watchOption.wasSet,
     removeFolderName: removeFoldersInFileNameOption.wasSet,
     stripXCAssets: stripAssetsOption.wasSet,
     fullLocalizationKeys: fullLocalizationKeysOption.wasSet
 )
+#else
+radon = Radon(
+    folder: "/Users/bvkuijck/Desktop/workspace/ios/#library/Radon/RadonExample/RadonExample/Resources",
+    outputFolder: "/Users/bvkuijck/Desktop/workspace/ios/#library/Radon/RadonExample/Generated/",
+    bundleName: "Bundle.main",
+    watch: false,
+    removeFolderName: true,
+    stripXCAssets: true,
+    fullLocalizationKeys: true
+)
+#endif
 radon.run()

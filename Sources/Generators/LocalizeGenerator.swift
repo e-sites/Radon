@@ -50,22 +50,13 @@ class LocalizeGenerator: Generator {
         return [ "lproj" ]
     }
     
-    let outputFolder: String
-    let removeFolderName: Bool
-    let fullLocalizationKeys: Bool
     private var localizationFolders: [String] = []
     private var locales: [String: LocaleObject] = [:]
     
-    init(outputFolder: String, removeFolderName: Bool = false, fullLocalizationKeys: Bool = false) {
-        self.outputFolder = outputFolder
-        self.removeFolderName = removeFolderName
-        self.fullLocalizationKeys = fullLocalizationKeys
-    }
-    
-    required init(outputFolder: String, removeFolderName: Bool = false) {
-        self.outputFolder = outputFolder
-        self.removeFolderName = removeFolderName
-        self.fullLocalizationKeys = false
+    let config: Config
+
+    required init(config: Config) {
+        self.config = config
     }
     
     func parse(folder: Folder) {
@@ -95,7 +86,7 @@ class LocalizeGenerator: Generator {
             "",
             "extension \(Radon.fileName) {",
             "",
-            "enum \(name) {".tabbed(1)
+            "public enum \(name) {".tabbed(1)
         ]
         iterate(obj: baseObj, lines: &lines)
         lines.append("}".tabbed(1))
@@ -104,7 +95,7 @@ class LocalizeGenerator: Generator {
         let contents = lines.joined(separator: "\n")
 //        print(contents)
         do {
-            let file = File(path: "\(outputFolder)/\(Radon.fileName)+\(name).swift")
+            let file = File(path: "\(config.outputFolder)/\(Radon.fileName)+\(name).swift")
             try file.write(string: contents)
         } catch let error {
             Logger.fatalError("\(error)")
@@ -129,7 +120,7 @@ class LocalizeGenerator: Generator {
                 if sub.subs.isEmpty {
                     lines.append(createStaticVar(sub).tabbed(indent))
                 } else {
-                    lines.append("enum \(sub.name.predefinedString) {".tabbed(indent))
+                    lines.append("public enum \(sub.name.predefinedString) {".tabbed(indent))
                     iterate(obj: sub, indent: indent + 1, lines: &lines)
                     lines.append("}".tabbed(indent))
                 }
@@ -139,10 +130,10 @@ class LocalizeGenerator: Generator {
     
     private func createStaticVar(_ sub: LocaleObject) -> String {
         if sub.key.isPlural {
-            return "static func \(sub.name.predefinedString)(_ count: Int, locale: Locale = Radon.defaultPluralLocale) -> String { String(format: NSLocalizedString(\"\(sub.key.key)\", comment: \"\"), locale: locale, count) }"
+            return "public static func \(sub.name.predefinedString)(_ count: Int, locale: Locale = Radon.defaultPluralLocale) -> String { String(format: NSLocalizedString(\"\(sub.key.key)\", bundle: \(config.bundleName), comment: \"\"), locale: locale, count) }"
         }
         
-        return "static var \(sub.name.predefinedString): String { NSLocalizedString(\"\(sub.key.key)\", comment: \"\") }"
+        return "public static var \(sub.name.predefinedString): String { NSLocalizedString(\"\(sub.key.key)\", bundle: \(config.bundleName), comment: \"\") }"
     }
     
     private func removePlaceholder(_ string: String) -> String {
@@ -160,7 +151,7 @@ class LocalizeGenerator: Generator {
     private func iterate(key: StringKey, parent: LocaleObject) -> LocaleObject {
         var parent = parent
         
-        if fullLocalizationKeys {
+        if config.fullLocalizationKeys {
             let name = removePlaceholder(
                 key.key
                     .lowercased()

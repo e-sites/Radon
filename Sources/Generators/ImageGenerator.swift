@@ -8,63 +8,11 @@
 import Foundation
 import Francium
 
-private class ImageStruct: CustomStringConvertible {
-    private let _name: String?
-    var subStructs: [ImageStruct] = []
-    var superStruct: ImageStruct?
-    var images: [String] = []
-    
-    var name: String? {
-        return self._name?.camelCased().appendIfFirstCharacterIsNumber(with: "_")
-    }
-
-    init(name: String? = nil) {
-        self._name = name
-    }
-
-    var hasImages: Bool {
-        if images.isEmpty {
-            return !subStructs.filter { $0.hasImages }.isEmpty
-        }
-        return true
-    }
-
-    var description: String {
-        return "\(name ?? "nil"): \(hasImages), images: \(images), subStructs: \(subStructs)"
-    }
-    
-    var superFolderName: String? {
-        var superStruct: ImageStruct? = self
-        var subNames: [String] = []
-        while superStruct != nil {
-            if let name = superStruct?._name {
-                subNames.insert(name, at: 0)
-            }
-            superStruct = superStruct?.superStruct
-        }
-        subNames.removeFirst()
-        if subNames.isEmpty {
-            return nil
-        }
-        return subNames.joined(separator: "")
-    }
-}
-
 class ImageGenerator: Generator {
-    let outputFolder: String
-    let skipXCAssets: Bool
-    let removeFolderName: Bool
+    let config: Config
 
-    required init(outputFolder: String, removeFolderName: Bool = false) {
-        self.outputFolder = outputFolder
-        self.skipXCAssets = false
-        self.removeFolderName = removeFolderName
-    }
-    
-    required init(outputFolder: String, removeFolderName: Bool = false, skipXCAssets: Bool = false) {
-        self.outputFolder = outputFolder
-        self.skipXCAssets = skipXCAssets
-        self.removeFolderName = removeFolderName
+    required init(config: Config) {
+        self.config = config
     }
 
     private var _parsedImageNames: [String] = []
@@ -81,16 +29,16 @@ class ImageGenerator: Generator {
         let newFolder = Folder(name: name)
         newFolder.files = folder.files
         newFolder.subFolders = folder.subFolders
-        let imageStruct = ImageStruct()
+        let imageStruct = ObjStruct()
 
         _parse(folder: newFolder, in: imageStruct)
         var lines: [String] = [
             headerLines(fileName: Radon.fileName),
             "#if os(OSX)",
-            "typealias RadonImage = NSImage",
+            "public typealias RadonImage = NSImage",
             "import AppKit",
             "#else",
-            "typealias RadonImage = UIImage",
+            "public typealias RadonImage = UIImage",
             "import UIKit",
             "#endif",
             "",
@@ -98,7 +46,7 @@ class ImageGenerator: Generator {
             "#if os(OSX)",
             "return NSImage(named: NSImage.Name(name))".tabbed(1),
             "#else",
-            "return UIImage(named: name, in: Bundle(for: Radon.self), compatibleWith: nil)".tabbed(1),
+            "return UIImage(named: name, in: \(config.bundleName), compatibleWith: nil)".tabbed(1),
             "#endif",
             "}",
             "",
@@ -111,35 +59,35 @@ class ImageGenerator: Generator {
 
         let contents = lines.joined(separator: "\n")
         do {
-            let file = File(path: "\(outputFolder)/\(Radon.fileName)+\(name).swift")
+            let file = File(path: "\(config.outputFolder)/\(Radon.fileName)+\(name).swift")
             try file.write(string: contents)
         } catch let error {
             Logger.fatalError("\(error)")
         }
     }
 
-    private func _print(imageStruct: ImageStruct, indent: Int = 0, lines: inout [String]) {
-        if !imageStruct.hasImages {
+    private func _print(imageStruct: ObjStruct, indent: Int = 0, lines: inout [String]) {
+        if !imageStruct.hasObjects {
             return
         }
 
         if let name = imageStruct.name {
             let structName = name.camelCased().appendIfFirstCharacterIsNumber(with: "_")
-            lines.append("enum \(structName.predefinedString) {".tabbed(indent))
+            lines.append("public enum \(structName.predefinedString) {".tabbed(indent))
         }
 
         for subStruct in imageStruct.subStructs {
             _print(imageStruct: subStruct, indent: indent + 1, lines: &lines)
         }
 
-        for imageName in imageStruct.images {
+        for imageName in imageStruct.objects {
             var varName = imageName
-            if let superFolderName = imageStruct.superFolderName, removeFolderName == true, varName.hasPrefix(superFolderName) {
+            if let superFolderName = imageStruct.superFolderName, config.removeFolderName, varName.hasPrefix(superFolderName) {
                 varName = String(varName.dropFirst(superFolderName.count))
             }
             varName = varName.camelCased().appendIfFirstCharacterIsNumber(with: "_")
             let uiimage = "image(named: \"\(imageName)\")"
-            lines.append("static var \(varName.predefinedString): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
+            lines.append("public static var \(varName.predefinedString): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
         }
 
         if imageStruct.name != nil {
@@ -148,9 +96,9 @@ class ImageGenerator: Generator {
     }
     
 
-    private func _parse(folder: Folder, in imageStruct: ImageStruct) {
+    private func _parse(folder: Folder, in imageStruct: ObjStruct) {
         var folderName = folder.name
-        if folderName == "Assets" && skipXCAssets && imageStruct.superStruct?.name == nil {
+        if folderName == "Assets" && config.stripXCAssets && imageStruct.superStruct?.name == nil {
             folder.subFolders.forEach { file in
                 _parse(folder: file, in: imageStruct)
             }
@@ -161,7 +109,7 @@ class ImageGenerator: Generator {
             folderName = folderName.replacingOccurrences(of: ".xcassets", with: "")
         }
         
-        let newStruct = ImageStruct(name: folderName)
+        let newStruct = ObjStruct(name: folderName)
         imageStruct.subStructs.append(newStruct)
         newStruct.superStruct = imageStruct
         folder.subFolders.forEach { file in
@@ -176,7 +124,7 @@ class ImageGenerator: Generator {
             }
             
             _parsedImageNames.append(name)
-            newStruct.images.append(name)
+            newStruct.objects.append(name)
         }
     }
 

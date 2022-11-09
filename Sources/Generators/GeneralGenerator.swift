@@ -9,14 +9,12 @@ import Foundation
 import Francium
 
 class GeneralGenerator: Generator {
-    let outputFolder: String
-    let removeFolderName: Bool
-
     var allowedExtensions: [String] { return [] }
+    
+    let config: Config
 
-    required init(outputFolder: String, removeFolderName: Bool = false) {
-        self.removeFolderName = removeFolderName
-        self.outputFolder = outputFolder
+    required init(config: Config) {
+        self.config = config
     }
 
     var name: String {
@@ -28,14 +26,14 @@ class GeneralGenerator: Generator {
             headerLines(fileName: Radon.fileName),
             "import Foundation",
             "",
-            "class \(Radon.fileName) {",
-            "static var defaultPluralLocale = Locale.current".tabbed(1),
+            "public class \(Radon.fileName) {",
+            "public static var defaultPluralLocale = Locale.current".tabbed(1),
             "",
             "private init() { }".tabbed(1),
             "}"
         ]
         do {
-            let file = File(path: "\(outputFolder)/\(Radon.fileName).swift")
+            let file = File(path: "\(config.outputFolder)/\(Radon.fileName).swift")
             try file.write(string: contents.joined(separator: "\n"))
         } catch let error {
             Logger.fatalError("\(error)")

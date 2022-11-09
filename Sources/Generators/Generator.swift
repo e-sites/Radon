@@ -8,11 +8,10 @@
 import Foundation
 
 protocol Generator {
-    var name: String { get }
-    var allowedExtensions: [String] { get }
+    var config: Config { get }
     func parse(folder: Folder)
 
-    init(outputFolder: String, removeFolderName: Bool)
+    init(config: Config)
 }
 
 
