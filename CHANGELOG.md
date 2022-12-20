@@ -1,5 +1,11 @@
 # Changelog Radon
 
+## v2.3.2 (16-11-2022)
+- Option to hide the date in the header of the generated swift files
+
+## v2.3.1 (10-11-2022)
+- Add localization translation in comment docblock
+
 ## v2.3.0 (09-11-2022)
 - Added bundle parameter
 

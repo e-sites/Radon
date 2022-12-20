@@ -43,6 +43,12 @@ let removeFoldersInFileNameOption = BoolOption(shortFlag: "r",
                              required: false,
                              helpMessage: "Remove the name of the folder from the filename")
 
+
+let hideDateInHeader = BoolOption(shortFlag: "h",
+                             longFlag: "hide_update_datetime_in_header",
+                             required: false,
+                             helpMessage: "Hides the date/time in the generated swift files' header")
+
 let stripAssetsOption = BoolOption(shortFlag: "s",
                              longFlag: "strip_xcassets",
                              required: false,
@@ -53,7 +59,7 @@ let fullLocalizationKeysOption = BoolOption(shortFlag: "l",
                              required: false,
                              helpMessage: "Use R.strings.full_localization_key output instead of R.strings.some.key")
 
-cli.addOptions(folderOption, outOption, bundleOption, watchOption, removeFoldersInFileNameOption, stripAssetsOption, fullLocalizationKeysOption)
+cli.addOptions(folderOption, outOption, bundleOption, hideDateInHeader, watchOption, removeFoldersInFileNameOption, stripAssetsOption, fullLocalizationKeysOption)
 
 do {
     try cli.parse()
@@ -72,7 +78,8 @@ radon = Radon(
     watch: watchOption.wasSet,
     removeFolderName: removeFoldersInFileNameOption.wasSet,
     stripXCAssets: stripAssetsOption.wasSet,
-    fullLocalizationKeys: fullLocalizationKeysOption.wasSet
+    fullLocalizationKeys: fullLocalizationKeysOption.wasSet,
+    hideDateInHeader: hideDateInHeader.wasSet
 )
 #else
 radon = Radon(

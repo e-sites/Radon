@@ -11,13 +11,13 @@ import Francium
 private class LocaleObject: CustomDebugStringConvertible {
     var subs: [LocaleObject] = []
     let name: String
-
+    
     var key: StringKey = StringKey(key: "")
     
     init(name: String = "") {
         self.name = name
     }
-
+    
     var debugDescription: String {
         return "<'\(name)': key: '\(key)', subs: \(subs)>"
     }
@@ -25,10 +25,12 @@ private class LocaleObject: CustomDebugStringConvertible {
 
 struct StringKey: Hashable {
     let key: String
+    let value: String
     let isPlural: Bool
     
-    init(key: String, isPlural: Bool = false) {
+    init(key: String, value: String = "", isPlural: Bool = false) {
         self.key = key
+        self.value = value
         self.isPlural = isPlural
     }
     
@@ -54,7 +56,7 @@ class LocalizeGenerator: Generator {
     private var locales: [String: LocaleObject] = [:]
     
     let config: Config
-
+    
     required init(config: Config) {
         self.config = config
     }
@@ -93,7 +95,7 @@ class LocalizeGenerator: Generator {
         lines.append("}")
         
         let contents = lines.joined(separator: "\n")
-//        print(contents)
+        //        print(contents)
         do {
             let file = File(path: "\(config.outputFolder)/\(Radon.fileName)+\(name).swift")
             try file.write(string: contents)
@@ -108,17 +110,24 @@ class LocalizeGenerator: Generator {
             return []
         }
         
-        return Array(dictionary.keys).map { StringKey(key: $0, isPlural: true) }
+        return Array(dictionary.keys).map { key in
+            var value: String?
+            if let dic = dictionary[key] as? [String: Any],
+               let translations = Array(dic.keys).compactMap({ dic[$0] as? [String: Any] }).first as? [String: String] {
+                value = translations["other"] ?? translations["one"]
+            }
+            return StringKey(key: key, value: value ?? "", isPlural: true)
+        }
     }
     
     private func iterate(obj: LocaleObject, indent: Int = 2, lines: inout [String]) {
         if obj.subs.count == 1, let sub = obj.subs.first, !sub.key.key.isEmpty {
-            lines.append(createStaticVar(sub).tabbed(indent))
+            lines.append(createStaticVar(sub, indent: indent))
             
         } else {
             for sub in obj.subs {
                 if sub.subs.isEmpty {
-                    lines.append(createStaticVar(sub).tabbed(indent))
+                    lines.append(createStaticVar(sub, indent: indent))
                 } else {
                     lines.append("public enum \(sub.name.predefinedString) {".tabbed(indent))
                     iterate(obj: sub, indent: indent + 1, lines: &lines)
@@ -128,12 +137,14 @@ class LocalizeGenerator: Generator {
         }
     }
     
-    private func createStaticVar(_ sub: LocaleObject) -> String {
+    private func createStaticVar(_ sub: LocaleObject, indent: Int) -> String {
         if sub.key.isPlural {
-            return "public static func \(sub.name.predefinedString)(_ count: Int, locale: Locale = Radon.defaultPluralLocale) -> String { String(format: NSLocalizedString(\"\(sub.key.key)\", bundle: \(config.bundleName), comment: \"\"), locale: locale, count) }"
+            return "/// Plural '\(sub.key.value)'\n".tabbed(indent) +
+            "public static func \(sub.name.predefinedString)(_ count: Int, locale: Locale = Radon.defaultPluralLocale) -> String { String(format: NSLocalizedString(\"\(sub.key.key)\", bundle: \(config.bundleName), comment: \"\"), locale: locale, count) }\n".tabbed(indent)
         }
         
-        return "public static var \(sub.name.predefinedString): String { NSLocalizedString(\"\(sub.key.key)\", bundle: \(config.bundleName), comment: \"\") }"
+        return "/// '\(sub.key.value)'\n".tabbed(indent) +
+        "public static var \(sub.name.predefinedString): String { NSLocalizedString(\"\(sub.key.key)\", bundle: \(config.bundleName), comment: \"\") }\n".tabbed(indent)
     }
     
     private func removePlaceholder(_ string: String) -> String {
@@ -146,7 +157,7 @@ class LocalizeGenerator: Generator {
         }
         return string
     }
-
+    
     
     private func iterate(key: StringKey, parent: LocaleObject) -> LocaleObject {
         var parent = parent
@@ -209,18 +220,23 @@ class LocalizeGenerator: Generator {
     }
     
     private func parse(contents: String) -> [StringKey] {
-        var keys: [String] = []
+        var keys: [(String, String)] = []
         let lines = contents.components(separatedBy: "\n")
         for line in lines {
             do {
                 let regex = try NSRegularExpression(pattern: #""(.+?)"(| )=(| )"(.+?)";"#)
                 let results = regex.matches(in: line, range: NSRange(location: 0, length: line.count))
                 for result in results where result.numberOfRanges == 5 {
-                    keys.append(NSString(string: line).substring(with: result.range(at: 1)))
+                    keys.append(
+                        (
+                            NSString(string: line).substring(with: result.range(at: 1)),
+                            NSString(string: line).substring(with: result.range(at: 4))
+                        )
+                    )
                 }
             } catch {
             }
         }
-        return keys.map { StringKey(key: $0) }
+        return keys.map { StringKey(key: $0.0, value: $0.1) }
     }
 }

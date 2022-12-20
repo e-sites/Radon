@@ -14,10 +14,11 @@ struct Config {
     let removeFolderName: Bool
     let stripXCAssets: Bool
     let fullLocalizationKeys: Bool
+    let hideDateInHeader: Bool
 }
 
 class Radon {
-    static var version: String = "2.3.0"
+    static var version: String = "2.3.1"
 
     static var fileName = "Radon"
     private let _config: Config
@@ -34,7 +35,8 @@ class Radon {
         watch: Bool = true,
         removeFolderName: Bool = false,
         stripXCAssets: Bool = false,
-        fullLocalizationKeys: Bool = false
+        fullLocalizationKeys: Bool = false,
+        hideDateInHeader: Bool = false
     ) {
         if !File(path: outputFolder).isDirectory {
             Logger.fatalError("'\(outputFolder)' does not exist")
@@ -56,7 +58,7 @@ class Radon {
             aFolder.removeLast()
         }
         _shouldWatch = watch
-        _config = Config(bundleName: bundleName, outputFolder: aFolder, removeFolderName: removeFolderName, stripXCAssets: stripXCAssets, fullLocalizationKeys: fullLocalizationKeys)
+        _config = Config(bundleName: bundleName, outputFolder: aFolder, removeFolderName: removeFolderName, stripXCAssets: stripXCAssets, fullLocalizationKeys: fullLocalizationKeys, hideDateInHeader: hideDateInHeader)
     }
 
     func run() {

@@ -48,7 +48,7 @@ class ColorsGenerator: Generator {
             "#endif",
             "",
             "private func color(named name: String) -> RadonColor {",
-            "return RadonColor(named: name, in: \(config.bundleName))!".tabbed(1),
+            "return RadonColor(named: name, in: \(config.bundleName), compatibleWith: nil)!".tabbed(1),
             "}",
             "",
             "extension \(Radon.fileName) {",
@@ -125,6 +125,4 @@ class ColorsGenerator: Generator {
             newStruct.objects.append(file.name)
         }
     }
-    
-//    
 }
