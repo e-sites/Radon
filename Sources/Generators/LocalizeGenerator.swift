@@ -95,7 +95,6 @@ class LocalizeGenerator: Generator {
         lines.append("}")
         
         let contents = lines.joined(separator: "\n")
-        //        print(contents)
         do {
             let file = File(path: "\(config.outputFolder)/\(Radon.fileName)+\(name).swift")
             try file.write(string: contents)
@@ -217,6 +216,14 @@ class LocalizeGenerator: Generator {
                 localizationFolders.append(file.dirName)
             }
         }
+        localizationFolders.sort { folder1, folder2 in
+            if folder1.contains("/en-") {
+                return true
+            } else if folder2.contains("/en-") {
+                return false
+            }
+            return folder1 < folder2
+        }
     }
     
     private func parse(contents: String) -> [StringKey] {
@@ -224,13 +231,13 @@ class LocalizeGenerator: Generator {
         let lines = contents.components(separatedBy: "\n")
         for line in lines {
             do {
-                let regex = try NSRegularExpression(pattern: #""(.+?)"(| )=(| )"(.+?)";"#)
-                let results = regex.matches(in: line, range: NSRange(location: 0, length: line.count))
-                for result in results where result.numberOfRanges == 5 {
+                let regex = try NSRegularExpression(pattern: #""(.+?)"(?:| )=(?:| )"(.+?|)";"#, options: .dotMatchesLineSeparators)
+                let results = regex.matches(in: line, range: NSRange(location: 0, length: line.utf16.count))
+                for result in results where result.numberOfRanges == 3 {
                     keys.append(
                         (
                             NSString(string: line).substring(with: result.range(at: 1)),
-                            NSString(string: line).substring(with: result.range(at: 4))
+                            NSString(string: line).substring(with: result.range(at: 2))
                         )
                     )
                 }

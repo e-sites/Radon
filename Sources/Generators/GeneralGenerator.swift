@@ -27,7 +27,7 @@ class GeneralGenerator: Generator {
             "import Foundation",
             "",
             "public class \(Radon.fileName) {",
-            "public static var defaultPluralLocale = Locale.current".tabbed(1),
+            "nonisolated(unsafe) public static var defaultPluralLocale = Locale.current".tabbed(1),
             "",
             "private init() { }".tabbed(1),
             "}"

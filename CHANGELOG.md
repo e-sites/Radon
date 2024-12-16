@@ -1,5 +1,11 @@
 # Changelog Radon
 
+## v2.3.4 (16-12-2024)
+- UTF16 symbols
+
+## v2.3.3 (25-09-2024)
+- Swift 6
+
 ## v2.3.2 (16-11-2022)
 - Option to hide the date in the header of the generated swift files
 
