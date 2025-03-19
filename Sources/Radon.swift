@@ -18,7 +18,7 @@ struct Config {
 }
 
 class Radon {
-    static var version: String = "2.3.4"
+    static var version: String = "2.3.5"
 
     static var fileName = "Radon"
     private let _config: Config

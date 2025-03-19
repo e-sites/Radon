@@ -1,5 +1,8 @@
 # Changelog Radon
 
+## v2.3.5 (19-03-2025)
+- Unwrapped images
+
 ## v2.3.4 (16-12-2024)
 - UTF16 symbols
 

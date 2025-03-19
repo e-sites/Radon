@@ -42,11 +42,11 @@ class ImageGenerator: Generator {
             "import UIKit",
             "#endif",
             "",
-            "private func image(named name: String) -> RadonImage? {",
+            "private func image(named name: String) -> RadonImage {",
             "#if os(OSX)",
-            "return NSImage(named: NSImage.Name(name))".tabbed(1),
+            "return NSImage(named: NSImage.Name(name)) ?? NSImage(size: .zero)".tabbed(1),
             "#else",
-            "return UIImage(named: name, in: \(config.bundleName), compatibleWith: nil)".tabbed(1),
+            "return UIImage(named: name, in: \(config.bundleName), compatibleWith: nil) ?? UIImage()".tabbed(1),
             "#endif",
             "}",
             "",
@@ -87,7 +87,7 @@ class ImageGenerator: Generator {
             }
             varName = varName.camelCased().appendIfFirstCharacterIsNumber(with: "_")
             let uiimage = "image(named: \"\(imageName)\")"
-            lines.append("public static var \(varName.predefinedString): RadonImage? { return \(uiimage) }".tabbed(indent + 1))
+            lines.append("public static var \(varName.predefinedString): RadonImage { return \(uiimage) }".tabbed(indent + 1))
         }
 
         if imageStruct.name != nil {
